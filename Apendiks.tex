@@ -1,0 +1,53 @@
+\chapter{Grup}
+	Di apendiks ini kita hanya akan sedikit berkenalan dengan konsep grup dalam aljabar abstrak. Jika pembaca ingin belajar lebih jauh, silahkan membaca buku referensi utama untuk kuliah ini (atau kuliah struktur aljabar). \\
+	
+	Tinjau sistem matematika $(S,\oplus)$ untuk suatu himpunan tak kosong $S$ dan operasi $\oplus: S \times S \rightarrow S$. Sistem matematika $(S, \oplus)$ (atau tulis sebagai $S$ saja apabila operasi yang dimaksud jelas) kita sebut sebagai \textbf{grup} apabila:
+	\begin{enumerate}
+		\item Terdapat unsur identitas $e \in S$ sehingga untuk sebarang $a \in S$ berlaku $a \oplus e = e \oplus a = a$ (terkadang juga dinotasikan sebagai nol)
+		\item Untuk sebarang $a \in S$ terdapat unsur invers $-a \in S$ (atau seringkali juga dinotasikan sebagai $a^{-1}$) sehingga $a \oplus (-a) = -a \oplus a = e$
+		\item Untuk sebarang $a,b,c \in S$ berlaku $a \oplus (b \oplus c) = (a \oplus b) \oplus c$
+	\end{enumerate}
+	Apabila $a \oplus b = b \oplus a$ untuk setiap $a,b \in S$, kita katakan $S$ sebagai \textbf{grup komutatif}. Tentunya karena $\oplus$ suatu operasi, $S$ haruslah tertutup atas $\oplus$ serta operasinya harus terdefinisi dengan baik (tidak bergantung pada wakil kelas). Dengan kata lain, untuk $a,b,a',b' \in S$ dengan $a = a'$ dan $b = b'$ haruslah berlaku $a \oplus b = a' \oplus b'$ (kasus seperti ini akan kita temui ketika kita meninjau grup yang anggotanya adalah kelas-kelas ekuivalen, misalnya $(\mathbb{Z}_2, +)$ yang berisi kelas ekuivalen $[0]_2$ dan $[1]_2$). Dapat kita periksa bahwa unsur identitas tunggal di grup dan unsur invers bagi suatu unsur juga tunggal.
+	\begin{theorem}[Ketunggalan Identitas]
+	Misalkan $d,e$ unsur di grup $(S,*)$ dan untuk setiap $a \in S$ berlaku $e * a = a * e = a$ dan $d * a = a * d = a$. Haruslah berlaku $e = d$.
+	\end{theorem}
+	\begin{proof}
+		 Perhatikan bahwa \begin{equation*}
+		\begin{split}
+		e * a &= a * e \\
+		&= a\\
+		&= d * a\\
+		\end{split}`
+		\end{equation*}	
+		Sehingga dengan mengoperasikan $a^{-1}$ di kedua ruas dari kanan, kita dapatkan $e = d$. Jadi, haruslah unsur identitas tunggal
+	\end{proof}
+	\begin{theorem}[Ketunggalan Invers]
+	Misalkan $(S,*)$ suatu grup dan $a,b,c \in S$ sedemikian sehingga $a * b = b * a = e$ dan $a * c = c * a = e$ untuk $e$ unsur identitas di $S$. Haruslah berlaku $b = c$.
+	\end{theorem}
+	\begin{proof}
+		Tinjau unsur $b$. Karena $e$ identitas, haruslah $b = b * e$. Kemudian, perhatikan bahwa
+		\begin{equation*}
+		\begin{split}
+		b * e & = b * (a * c)\\
+		& = (b * a) * c\\
+		& = e * c\\
+		& = c
+		\end{split}
+		\end{equation*}
+		Jadi $b = c$ dan kita selesai.
+	\end{proof}
+	Untuk mempermudah penulisan, umumnya grup $(S,*)$ hanya akan ditulis sebagai grup $S$ saja dan operasinya tidak ditulis. Sebagai contoh, operasi $a * b * a^{-1} * b^{-1}$ umumnya hanya akan ditulis sebagai $aba^{-1}b^{-1}$ saja. Terkadang juga ketika kita bekerja dengan lebih dari satu grup (misalnya ketika kita bekerja dengan homomorfisma grup dari grup $G$ ke grup $H$), akan berguna untuk menandai identitas $G$ sebagai $e_G$ dan identitas $H$ sebagai $e_H$. Pelabelan ini dapat dihilangkan jika dirasa cukup jelas grupnya.
+	\\
+	
+	\textbf{Diskusi.} Periksa apakah operasi + pada grup $(Z_n, +)$ dengan $+$ adalah penjumlahan modulo terdefinisi dengan baik\\
+	
+	\textbf{Diskusi.} Tunjukkan bahwa jika suatu unsur adalah identitas satu sisi dari suatu grup, haruslah ia unsur identitas di grup tersebut. Yaitu, tunjukkan bahwa jika untuk suatu grup $G$ dengan $a,b \in G$ dan $ab = b$ haruslah berlaku $ba = b$ dan $a = e_G$\\
+	
+	\textbf{Diskusi.} Misalkan $(G,\star)$ dan $(H,\circ)$ grup dan $f: G \rightarrow H$ suatu pemetaan yang mengawetkan operasi, yaitu $f(a \star b) = f(a) \circ f(b)$ untuk setiap $a,b \in G$. Periksa apakah:
+	\begin{enumerate}
+		\item $f(e_G) = e_H$
+		\item Untuk sebarang $a \in G$ berlaku $f(a^{-1}) = {f(a)}^{-1}$
+		\item Peta($f$)dan Inti($f$) adalah suatu grup
+		\item Untuk sebarang $a,b \in G$ haruslah $a \star b \star a^{-1} \star b^{-1} \in$ Inti$(f)$
+	\end{enumerate}
+	Pemetaan yang mengawetkan operasi tersebut kita kenal sebagai \textbf{homomorfisma} dari grup $G$ ke grup $H$

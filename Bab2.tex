@@ -1,0 +1,141 @@
+\chapter{Sistem Bilangan Bulat}
+	Bahasan struktur bilangan bulat akan dimulai dari hal yang paling familiar dengan kita, yaitu sistem bilangan bulat beserta sifat-sifatnya.
+	\section{Bilangan Bulat}
+	Tinjau sistem matematika $(\mathbb{Z},+,\times)$ dengan $+$ dan $\times$ adalah operasi penjumlahan dan perkalian biasa. Kita punya sifat-sifat berikut untuk setiap $a,b,c \in \mathbb{Z}$:
+	\begin{enumerate}
+		\item Sifat asosiatif, yakni $(a+b)+c = a+(b+c)$ dan $a \times (b \times c) = (a \times b) \times c$
+		\item Sifat komutatif, yakni $a+b = b+a$ dan $a \times b = b \times a$
+		\item Ada unsur identitas $e \in \mathbb{Z}$ sehingga $ae = ea = a$. Untuk penjumlahan $e = 0$ sehingga $a + 0 = 0 + a = 0$ dan untuk perkalian $e = 1$ sehingga $a \times 1 = 1 \times a = a$
+		\item Ada unsur invers penjumlahan $-a$ sehingga $a + (-a) = (-a) + a = 0$
+		\item Sifat distributif, yakni $a \times (b + c) = a\times b + a \times c$
+	\end{enumerate}
+	Untuk setiap sistem matematika yang memenuhi sifat-sifat tersebut, kita sebut sebagai \textbf{gelanggang} (\textit{ring}). Perhatikan pula bahwa pada gelanggang bilangan bulat, misalkan $a,b \in \mathbb{Z}$ dengan $ab = 0$. Haruslah $a = 0$ atau $b = 0$. Sifat ini tidak selalu berlaku pada sembarang gelanggang (misalnya pada perkalian matriks). Gelanggang yang memenuhi sifat tersebut kita sebut sebagai \textbf{daerah integral} (\textit{integral domain}).
+	\\
+	
+	Berikutnya, kita akan buktikan hasil yang selama ini sudah kita kenal (tetapi sebenarnya bukanlah aksioma)
+	
+	\begin{theorem}
+		Untuk $a,-a,b \in \mathbb{Z}$ berlaku
+		\begin{itemize}
+			\item $0a =0$
+			\item $(-a)b = a(-b) = -(ab)$
+		\end{itemize}
+	\end{theorem}
+	\begin{proof}
+		\begin{enumerate}
+			\item Dari definisi, $0 + 0 = 0$. Kita dapatkan
+			\begin{equation*}
+				\begin{split}
+				0a & = (0+0)a\\
+				& = 0a + 0a\\
+				\end{split}
+			\end{equation*}
+			Menjumlahkan kedua ruas dengan $-(0a)$, kita dapatkan $0a = 0$.
+		\item Dari sifat di atas, kita tahu bahwa $a + (-a) = 0$ dan $0b = 0$ sehingga $0 = (a + (-a))b = ab + (-a)b$ (sifat distributif). Dengan menjumlahkan kedua ruas dengan $-ab$ kita dapatkan
+		\begin{equation*}
+		\begin{split}
+			-ab & = ab + a(-b) + (-ab)\\
+			-ab & = a(-b) 
+		\end{split}
+		\end{equation*}
+		Dengan cara serupa, $0 = (a + (-a))b = ab + a(-b)$ (perkalian bersifat komutatif) sehingga
+		\begin{equation*}
+			\begin{split}
+				0 & = ab + a(-b)\\
+				-ab & = -ab + ab + a(-b)\\
+				-ab & = a(-b)
+			\end{split}
+		\end{equation*}
+		Dengan demikian, $(-a)b = a(-b) = -ab$
+		\end{enumerate}
+	
+	Jadi, teorema tersebut terbukti.
+	\end{proof}
+	
+	Berikutnya, kita akan definisikan keterbagian di bilangan bulat. Misal $a,b \in \mathbb{Z}$, definisikan
+	\begin{enumerate}
+		\item Unsur $a$ dikatakan membagi $b$, notasikan sebagai $a | b$, jika ada $c \in \mathbb{Z}$ sehingga $b = ac$
+		\item Unsur $a$ dikatakan unit jika ada $b$ bulat sehingga $ab = 1$. Dapat diperiksa bahwa unit di $\mathbb{Z}$ hanyalah -1 dan 1
+		\item Nilai mutlak dari $a$ adalah $$ |a| =  
+		\begin{cases}
+			a &\mbox{untuk $a \ge 0$}\\
+			-a &\mbox{untuk $a < 0$}
+		\end{cases}	$$
+	\end{enumerate}
+	
+	Kemudian kita akan bahas tentang algoritma pembagian. Hal ini akan sering digunakan ketika kita membahas pembagi sekutu terbesar.
+	\begin{theorem}[Algoritma Pembagian]
+		Misal $a,b \in \mathbb{Z}$ dengan $a \ne 0$. Ada $p,r \in \mathbb{Z}$ unik sehingga $$b = ap + r$$ dengan $0 \le r < |a|$
+	\end{theorem}
+	\begin{proof}
+		Kita perlu tunjukkan dulu $p,r$ ada, lalu tunjukkan bahwa $p,r$ unik. Tinjau dahulu kasus $a > 0$. 
+		Definisikan himpunan $S = \{ b - ka \ | \ b-ka \ge 0, k \in \mathbb{Z} \}$. Dari \textit{well-order} kita tahu bahwa $S$ punya unsur terkecil asal $S$ tak hampa. Ini akan kita buktikan dulu. Untuk $b \ge 0$ jelas $S$ tak hampa (tinjau $k = 0$). Untuk $b < 0$ tinjau $k = b$ sehingga $b - ka = b - ba = b(1-a)$. Karena $a > 0$ dan $a$ bulat pastilah $(1-a)$ nol atau negatif sehingga $b(1-a) \ge 0$. Jadi, $S$ tidak kosong. Dengan demikian, kita bisa menggunakan prinsip \textit{well-order} untuk mendapatkan $S$ punya unsur terkecil. Misalkan unsur terkecilnya adalah $$r = b - k'a$$ tentu $0 \le r < a$. Karena $r \in S$, $r$ tentu non-negatif. Cukup dibuktikan $r < a$. Misal sebaliknya, $r \ge a$, berarti $b - k'a \ge a \iff b - (k'+1)a \ge 0 \in S$. Berarti, $r$ bukan unsur terkecil sehingga terjadi kontradiksi dengan prinsip \textit{well-order}. Jadi, haruslah $r < a$. Untuk mencari $p$, mudah dilihat bahwa $p = k'$ sehingga ada $p,r$ yang membuat $b = ap + r$. (Untuk $a < 0$ serupa)
+		\\
+		
+		Kemudian untuk menunjukkan $p,r$ unik, perlu ditunjukkan untuk $b = ap_1+r_1$ dan $b = ap_2 + r_2$ berlaku $p_1 = p_2$ dan $r_2 = r_1$. Tanpa mengurangi keumuman, asumsikan $r_1 \ge r_2$. Kita dapatkan $ap_1 + r_1 = ap_2 + r_2$ sehingga $r_1 - r_2 = a(p_2 - p_1)$. Jadi, $r_1 - r_2$ kelipatan $a$. Karena $0 \le r_1, r_2 < a$ dan $r_2 \ge r_1$, haruslah $0 \le r_2 - r_1 < a$. Satu-satunya kelipatan $a$ pada \textit{range} tersebut adalah $0$ sehingga $r_1 - r_2 = 0 \iff r_1 = r_2$. Akibatnya juga haruslah $p_1 = p_2$. Jadi, $p,r$ unik.
+	\end{proof}
+	
+	Berikutnya, kita akan buktikan eksistensi generator atau pembangun bagi subhimpunan $\mathbb{Z}$.
+	\begin{theorem}
+		Untuk $S \subseteq \mathbb{Z}$ tak hampa dengan $a + b, a - b$ di $S$ untuk setiap $a,b$ di $S$, ada $n \in S$ sehingga $$S = \{kn \, | \, k \in \mathbb{Z}\}$$
+	\end{theorem}
+	\begin{proof}
+		Ambil $a \in S$, jelas $a-a = 0 \in S$. Untuk $S = {0}$, kita bisa pilih $n = 0$ sehingga $S = \{k0 \, | \, k \in \mathbb{Z} \}$. Untuk kasus lainnya, misal $a \ne 0$, berarti $-a = 0 - a \in S$ sehingga $\{-a, 0, a\} \subseteq S$. Konsekuensinya, himpunan $S$ memuat bilangan positif. Definisikan himpunan $T = \{ t \, | \, t \in S, t > 0 \}$. Misalkan $x$ unsur terkecil di $T$. Untuk $k = 0$, $kx = 0$. Untuk $k > 0$, $kx = x + ... + x$ (sebanyak $k$ kali). Untuk $k < 0$, ada $m$ bulat positif sehingga $k = -m$ dan $kx = (-m)x = m(-x) = (-x) + ... + (-x)$ (sebanyak $m = -k$ kali). Akibatnya, $\{ kx \, | \, k \in \mathbb{Z} \} \subseteq S$. Ambil $y \in S$, ada $p,r \in \mathbb{Z}$ sehingga $y = px + r$ dengan $0 \le r \le x$. Jelas bahwa $r = y - px \in S$. Karena $x$ unsur terkecil di $S$ dan $0 \le r \le x$, haruslah $r = 0$. Dengan demikian, $y = px \in S$ sehingga $S = \{kn \, | \, k \in \mathbb{Z}\} $
+	\end{proof}
+	Definisi-definisi berikut akan membantu untuk bahasan subbab berikutnya.
+	\\
+	\begin{enumerate}
+		\item Unsur $a,b \in \mathbb{Z}$ dikatakan \textbf{sekawan} jika $a|b$ dan $b|a$
+		\item Unsur $p \in \mathbb{Z}$ bukan unit dikatakan prima jika $p | ab$ mengimplikasikan $p | a$ atau $p | b$
+	\end{enumerate}
+	\section{Pembagi Sekutu Terbesar}
+	Tinjau dulu pembagi sekutu terbesar dari 2 bilangan bulat. Untuk $a,b,d \in \mathbb{Z}$. Unsur $d$ dikatakan pembagi sekutu terbesar bagi $a,b$ jika $d | a$ dan $d|b$ dan jika ada $c$ bulat yang menyebabkan $c | a$ dan $c | b$ maka $c | d$. Kita notasikan sebagai $(a,b) = d$. Beberapa referensi ada yang menuliskannya sebagai $GCD(a,b)$ (GCD di sini adalah \textit{Greatest Common Divisor}) ataupun $FPB(a,b)$. Notasi $()$ dipilih di sini untuk memudahkan saja.\\
+	
+	Kita definisikan juga untuk dua buah $a,b$ jika $(a,b) = 1$ kita katakan $a,b$ \textbf{relatif prima} atau \textbf{saling prima}.
+	\\
+	
+	Perlu diperhatikan bahwa mendefinisikan GCD tidak serta-merta mengimplikasikan GCD ada. Kali ini kita akan buktikan eksistensinya.
+	
+	\begin{theorem}[Eksistensi GCD]
+		Untuk $a,b \in \mathbb{Z}$ tidak keduanya nol ada $d \in \mathbb{Z}$ unik sehingga $d = (a,b)$ dan $d$ dapat ditulis sebagai $d = m_0a + n_0b$ untuk suatu $m_0,n_0 \in \mathbb{Z}$
+	\end{theorem}
+	
+	\begin{proof}
+		 Definisikan $A = \{ma + nb \ | \ m,n \in \mathbb{Z}\}$. karena $a,b$ tak keduanya nol, $A$ punya unsur tak nol. Jika $x \in A$ dengan $x < 0$, maka $-x = (-m_1)a + (-n_1)b \in A$ untuk suatu $m_1, n_1$ bulat. Jadi, $A$ punya unsur positif. Dari \textit{well-order}, $A$ punya unsur positif terkecil, sebut saja $c$. Karena $c \in A$, ada $m_0, n_0$ sehingga $m_0a + n_0b = c$. Klaim: $c$ adalah GCD dari $a,b$. Perhatikan bahwa jika $d | a$ dan $d |b$, haruslah $d | (m_0 a + n_0b)$ sehingga $d|c$. Dengan algoritma pembagian, dapat ditunjukkan bahwa $c | a$ dan $c | b$. Karena $c$ unsur positif terkecil di $A$, dan $c | a$ dan $c | b$, haruslah $c = (a,b)$, yaitu GCD dari $a,b$. Jadi, GCD ada.
+		 \\
+		 
+		 Untuk membuktikan GCD unik, misal ada $t > 0$ sehingga $t$ juga memenuhi definisi GCD (selain $c$). Haruslah $t | c$ dan $c | t$, sehingga $c = \pm t$. Namun, $c$ dan $t$ keduanya positif, sehingga $c = t$. Jadi, GCD unik.
+	\end{proof}
+	
+	Kemudian tinjau untuk lebih dari $2$ unsur. Misalkan $\{ a_1, a_2, ..., a_n \} \subseteq \mathbb{Z}$ dengan $a_i \ne 0$. Definisikan unsur $d \in \mathbb{Z}$ sebagai pembagi sekutu terbesar bagi $a_1, a_2, ..., a_n$ jika
+	\begin{itemize}
+		\item $d | a_i$ untuk setiap $i \in {1,2,...,n}$
+		\item Jika ada $c | a_i$ untuk setiap $i \in {1,2,...,n}$, maka $c | d$
+	\end{itemize}
+	Kita notasikan $(a_1, a_2, ..., a_n) = d$.
+	\\
+	
+	\textbf{Diskusi. }Coba anda buktikan bahwa GCD untuk $n$ unsur ada.
+	\section{Bilangan Prima dan Faktorisasi}
+	Kita awali dahulu bahasan pada subbab ini dengan membahas bilangan prima. Suatu bilangan $p$ (untuk sekarang asumsikan $p \in \mathbb{Z}$) dikatakan \textbf{prima} jika $p | ab$ mengakibatkan $p | a$ atau $p | b$ dan $p$ bukan unit (sehingga di bilangan bulat, $1$ dan $-1$ bukanlah prima).\\
+	
+	Di sekolah dasar dan menengah, kita sudah cukup familiar dengan konsep faktorisasi prima dari suatu bilangan. Namun, dari mana kita yakin bahwa setiap bilangan bulat dapat difaktorkan menjadi faktor-faktor prima (anggap satu dan nol sebagai perkalian kosong)? Kita tinjau dahulu kasus untuk bilangan bulat positif lebih dari 1. Untuk itu, kita punyai teorema berikut:
+	\begin{theorem}[Teorema Dasar Aritmatika]
+		Setiap bilangan bulat lebih dari 1 adalah bilangan prima atau merupakan hasil perkalian bilangan prima secara tunggal
+	\end{theorem}
+	Untuk membuktikan teorema ini, ada dua hal yang perlu diperhatikan. Pertama, menunjukkan bahwa faktorisasinya ada, kemudian menunjukkan bahwa faktorisasi tersebut tunggal. Dengan kata lain, apabila suatu bilangan $x \in \mathbb{Z}$ punya lebih dari satu cara untuk difaktorkan sedemikian sehingga $x = p_1 p_2 ... p_n = q_1 q_2 ... q_m$, haruslah berlaku $m = n$ dan ada suatu permutasi $\sigma : [1,n] \rightarrow [1,n]$ sehingga $p_i = q_{\sigma{(i)}}$ (perbedaan hanya pada urutan perkalian saja).
+	\begin{proof}
+		Kita mulai buktinya dengan membuktikan eksistensi faktor prima. Tinjau $n = 2$, karena 2 prima, jelas 2 dapat ditulis sebagai perkalian faktor-faktor prima (yakni dirinya sendiri). Andaikan untuk setiap $n < k$ benar bahwa setiap bilangan bulat positif lebih dari 1 punya faktor pirma. Untuk $k$ prima, jelas. Untuk $k$ tidak prima, haruslah ada $x,y$ dengan $1 < x \le y < k$ dengan $k = xy$. Dari asumsi kita sebelumnya, $x$ dan $y$ dapat ditulis sebagai perkalian faktor-faktor prima. Akibatnya, $k$ juga dapat ditulis sebagai perkalian faktor-faktor prima. Dari prinsip induksi kuat, kita simpulkan setiap bilangan bulat lebih dari 1 dapat ditulis sebagai perkalian faktor-faktor prima.\\
+		
+		Berikutnya, kita akan tinjau ketunggalannya. Andaikan ada suatu bilangan yang punya lebih dari 1 cara untuk memfaktorkannya, dari prinsip \textit{well-ordering} haruslah ada bilangan terkecil yang demikian, sebut saja $x$. Misalkan $x = p_1 p_2 ... p_n = q_1 q_2 ... q_m$. Akibatnya, $p_1 | q_1 q_2 ... q_m$. Karena $p_1$ prima, ada $i \in [1,m]$ sehingga $p_1 | q_i$. Tanpa mengurangi keumuman, misalkan $i = 1$ sehingga $p_1 | q_1$. Karena keduanya prima, haruslah $p_1 = q_1$. Kita dapatkan $p_2 p_3 ... p_n = q_2 q_3 ... q_m < x$. Kontradiksi dengan fakta bahwa $x$ adalah bilangan terkecil yang punya lebih dari satu cara untuk difaktorisasi prima. Kita simpulkan bahwa faktorisasi prima tersebut haruslah tunggal.
+	\end{proof}
+	Ternyata faktorisasi tunggal tidak selalu berlaku di setiap sistem matematika. Sebagai contoh, jika kita meninjau sistem matematika yang dibangun oleh himpunan $\{ a+b\sqrt{-5} \, | \, a,b \in \mathbb{Z} \}$, kita dapat lakukan faktorisasi $6 = 2 \times 3 = (1+\sqrt{-5})(1-\sqrt{-5})$. Lebih lanjut tentang ini akan kita bahas ketika kita mengkaji daerah faktorisasi tunggal di bab 4.\\
+	
+	Berikutnya, kita akan tinjau akibat dari teorema sebelumnya. Hasil ini dibahas pertama kali pada buku \textit{Elements} karya Euclid.
+	\begin{theorem}
+		Ada tak hingga banyaknya bilangan prima
+	\end{theorem}
+	\begin{proof}
+		Andaikan ada berhingga bilangan prima, definisikan himpunan $P = \{ p_1, p_2, ..., p_n \}$ sebagai himpunan semua bilangan prima. Berikutnya, tinjau $k = p_1 p_2 ... p_n + 1$. Jelas $k > 1$. Dari teorema dasar aritmatika, $k$ punya faktor prima, sebut saja $p$. Andaikan ada $i \in [1,n]$ sehingga $p = p_i$, haruslah $p|1$. Akibatnya, haruslah $p \ne p_i$ untuk setiap $i \in [1,n]$. Jadi, ada $p$ prima dengan $p \not\in P$, himpunan semua bilangan prima. Kontradiksi. Akibatnya, haruslah ada tak hingga banyaknya bilangan prima.
+	\end{proof}
+	

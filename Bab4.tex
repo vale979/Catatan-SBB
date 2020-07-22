@@ -1,0 +1,395 @@
+\chapter{Gelanggang}
+	\section{Gelanggang dan Propertinya}
+	Kali ini kita akan meninjau secara umum struktur dengan properti yang telah kita kenali sebelumnya. Tinjau kembali sistem matematika ($\mathbb{Z}_n,+,\times$). Properti-properti yang dimiliki (secara singkat) adalah komutatif pada operasi penjumlahan, asosiatif untuk operasi penjumlahan dan perkalian, eksistensi unsur identitas untuk operasi penjumlahan dan perkalian (unsur $0$ dan $1$), eksistensi invers penjumlahan, serta sifat distributif. Kali ini, kita akan meninjau sistem matematika lain dengan properti serupa. Setiap sistem matematika dengan properti tersebut akan kita sebut sebagai \textbf{gelanggang} atau \textit{ring}.
+	\\
+	
+	Kita mulai dengan mendefinisikan gelanggang.
+	\\
+	
+	\textbf{Definisi. }Suatu sistem matematika dengan dua operasi $(R,+,\cdot)$ (operasi pertama disebut sebagai penjumlahan dan kedua sebagai perkalian) merupakan \textbf{gelanggang} (dengan unsur kesatuan) jika untuk $a,b,c \in R$ berlaku
+	\begin{enumerate}
+		\item $a + b = b + a \in R$ (komutatif dan tertutup atas penjumlahan)
+		\item $a + (b + c) = (a + b) + c$ (asosiatif penjumlahan)
+		\item Ada $0 \in R$ sehingga $0 + a = a + 0 = a$
+		\item Ada $-a \in R$ sehingga $a + (-a) = 0 = (-a) + a$
+		\item Ada $1 \ne 0 \in R$ sehingga $a \cdot 1 = 1 \cdot a = a$
+		\item $a \cdot (b \cdot c) = (a \cdot b) \cdot c$ (asosiatif perkalian)
+		\item $a \cdot (b + c) = a \cdot b + a \cdot c$ (distributif)
+	\end{enumerate}
+	(coba anda periksa juga apakah $n\mathbb{Z}$ merupakan gelanggang).\\
+	
+	Tentunya $R$ harus tertutup atas $+$ dan $\cdot$ karena $+$ dan $\cdot$ adalah operasi di $R$. Beberapa literatur ada yang tidak mensyaratkan $1 \ne 0$ (sehingga identitas perkalian dan penjumlahan sama) untuk gelanggang, oleh sebab itu pada pendefinisian di atas penulis menyebut definisi tersebut sebagai gelanggang dengan unsur kesatuan (yaitu 1). Berikutnya struktur seperti ini hanya akan kita sebut sebagai gelanggang saja. Sebagai catatan, umumnya unsur 0 (identitas penjumlahan) disebut sebagai unsur identitas (saja) dan unsur 1 (identitas perkalian) disebut sebagai unsur kesatuan.
+	\\
+	
+	Hati-hati dengan operasi perkalian karena definisi gelanggang tidak mensyaratkan kekomutativannya dan eksistensi inversnya. Jika suatu gelanggang operasi perkaliannya juga komutatif, kita sebut sebagai \textbf{gelanggang komutatif}. Beberapa contoh gelanggang adalah (silahkan anda periksa yang mana saja yang komutatif dan jika perlu, buktikan) \begin{enumerate}
+		\item $\mathbb{Z}$ atas operasi biasa
+		\item $\mathbb{Q}$ atas operasi biasa
+		\item $\mathbb{C}$ atas operasi biasa
+		\item $M_{nn}(\mathbb{R})$, himpunan matriks $n \times n$ dengan koefisien real, atas operasi (matriks) biasa
+		\item $\mathbb{Z}_n$ atas operasi modulo
+	\end{enumerate}
+	
+	Berikutnya, kita akan definisikan sesuatu yang disebut sebagai pembagi nol.\\
+	
+	\textbf{Definisi. }Untuk $R$ suatu gelanggang dan $a \in R$ dengan $a \ne 0$, $a$ dikatakan sebagai \textbf{pembagi nol} jika ada $b \in R$ tak nol sehingga $ab = 0$.
+	\\
+	
+	Tidak semua gelanggang punya pembagi nol. Sebagai contoh, gelanggang $\mathbb{Z}$ atas operasi biasa tidak memiliki pembagi nol. Untuk contoh pembagi nol, di $\mathbb{Z}_6$ berlaku $\overline{2}\times \overline{3} = \overline{0}$. Contoh lainnya, silahkan anda coba cari semua pembagi nol di himpunan matriks $n\times n$ dengan koefisien real. (Hint: ingat kembali kuliah aljabar linier anda.)
+	\\
+	
+	Sekarang, gelanggang-gelanggang komutatif yang tidak memiliki pembagi nol akan kita beri nama khusus, yaitu \textbf{daerah integral} (\textit{integral domain}). Bedakan istilah "daerah integral" di sini dengan daerah pengintegralan pada kalkulus. Kata "integral" di sini merujuk ke "\textit{integer}" (dapat anda periksa bahwa gelanggang bilangan bulat memang merupakan daerah integral).
+	\\
+	
+	Pada daerah integral, kita punya teorema yang sudah kita kenal berikut:
+	
+	\begin{theorem}[Pencoretan]
+	Misal $D$ suatu daerah integral dan $x,y,z \in D$. Untuk $x \ne 0$ kita punya $xy = xz$ mengakibatkan $y = z$.
+	\end{theorem}
+	\begin{proof}
+		Perhatikan bahwa 
+		\begin{equation*}
+		\begin{split}
+		xy &= xz \\
+		\iff xy - xz &= 0\\
+		\iff x(y + (-z)) &= 0\\
+		\end{split}
+		\end{equation*}
+		hanya dipenuhi ketika $x = 0$ atau $y + (-z) = 0$. Karena $x \ne 0$, haruslah $y + (-z) = 0$. Menjumlahkan kedua ruas dengan $z$, kita dapat $y = z$.
+	\end{proof}
+	Kemudian, kita bahas satu struktur lagi yang banyak muncul pada bahasan aljabar linier (terutama terkait ruang vektor), yaitu struktur lapangan.
+	\\
+	
+	\textbf{Definisi.} Suatu sistem matematika $(F, +, \times)$ adalah suatu \textbf{lapangan} (atau dalam bahasa Inggris disebut \textit{field}) jika: \begin{enumerate}
+		\item ($F,+,\times$) adalah sebuah gelanggang komutatif
+		\item ($F$\textbackslash $\{0\},\times)$ adalah sebuah grup komutatif (biasanya disebut sebagai grup perkalian dari lapangan $F$)
+	\end{enumerate}
+	Dalam bahasa yang lebih manusiawi, suatu lapangan adalah gelanggang komutatif yang setiap unsur tak nolnya punya invers perkalian.
+	\\
+	
+	Hubungan antara daerah integral dengan lapangan dibahas dalam dua teorema berikut:
+	
+	\begin{theorem}
+	Setiap lapangan adalah daerah integral
+	\end{theorem}
+	\begin{proof}
+		Misal $F$ suatu lapangan. Ambil unsur tak nol di $F$, katakan $x \in F$. Andaikan $F$ bukan suatu daerah integral, ada $y \ne 0$ sehingga $xy = 0$. Akibatnya, \begin{equation*}
+		\begin{split}
+			x^{-1}(xy) &= (x^{-1})0 \\
+			(x^{-1}x)y &= (x^{-1})0 \\
+			y &= 0
+		\end{split}
+		\end{equation*}
+		Kontradiksi dengan $y \ne 0$. Jadi, haruslah $F$ suatu daerah integral.
+	\end{proof}
+	Apakah sebaliknya berlaku? Yakni, apakah setiap daerah integral adalah lapangan? Jika tidak, cobalah anda cari contoh daerah integral yang bukan lapangan.\\
+	
+	Teorema berikut ini membahas kasus khusus ketika suatu daerah integral juga merupakan suatu lapangan.
+	\begin{theorem}
+		Setiap daerah integral dengan banyaknya unsur berhingga adalah suatu lapangan
+	\end{theorem}
+	\begin{proof}
+		Misal $D$ suatu daerah integral dengan banyak unsur berhingga dan $x \ne 0 \in D$. Kita perlu tunjukkan sebarang $x$ tak nol tersebut punya invers. Tinjau himpunan $S = \{x, x^2, x^3, ... \}$. Jelas $S \subseteq D$. Karena $D$ punya berhingga unsur, haruslah $S$ punya berhingga unsur. Akibatnya, ada $m,n$ dengan $n < m$ sehingga $x^{m} = x^{n}$ sehingga $x^{m-n}x^{n} = x^{n}$.\\
+		
+		Sekarang, andaikan $m - n = 1$, kita dapatkan $x = 1$, jelas $x$ punya invers. Andaikan tidak, kita punya $x^{m-n} = x(x^{m-n-1})$. Karena $x^m = x^n$, jelas $x^{m-n} = 1$ sehingga $x(x^{m-n-1}) = 1$.\\
+		
+		Perhatikan bahwa karena $D$ daerah integral, operasi perkalian bersifat komutatif. Jadi, $x(x^{m-n-1}) = 1 = (x^{m-n-1})x$. Berdasarkan definisi invers, kita dapatkan $x^{m-n-1}$ adalah invers dari $x$. Karena $x$ dipilih sebarang asal tak nol, setiap unsur $x \in D$ tak nol punya invers. Jadi, $D$ adalah suatu lapangan.
+	\end{proof}
+	Lapangan dapat juga didefinisikan dalam daerah integral. Salah satu definisi lain lapangan adalah daerah integral yang setiap unsur tak nolnya punya invers. Silahkan anda periksa bahwa definisi ini dan definisi lapangan sebelumnya ekuivalen.
+	\\
+	
+	Karena ini adalah catatan terkait struktur bilangan bulat, marilah kembali ke gelanggang bilangan bulat modulo. Pada gelanggang $\mathbb{Z}_n$, kita punya teorema berikut.
+	
+	\begin{theorem}
+		Misal $\overline{a} \in \mathbb{Z}_n$ tak nol. Unsur $\overline{a}$ punya invers jika dan hanya jika $GCD(a,n)=1$.
+	\end{theorem}
+	\begin{proof}
+		Misalkan GCD($a,n$) $ = 1$. Dari teorema Euler, kita punya $\overline{a}^{\phi(n)} = 1$. Berarti, $\overline{a}\overline{a}^{\phi(n)-1} = \overline{1}$. Akibatnya, $\overline{a}$ punya invers.
+		\\
+		
+		Sebaliknya, misal $\overline{a}$ punya invers. Tulis $\overline{a}\overline{b} = 1$ untuk suatu $\overline{b} \in \mathbb{Z}_n$. Dari pendefinisian unsur di $\mathbb{Z}_n$, ada $k,l,j \in \mathbb{Z}$ sehingga
+		\begin{equation*}
+		\begin{split}
+		(kn+a)(ln+b) &= jn+1\\
+		\iff n(kln + bk - j) + a(ln + b) &= 1
+		\end{split}
+		\end{equation*}
+		Persamaan tersebut dapat kita tulis secara sederhana sebagai $$np + aq = 1$$
+		untuk $p,q \in \mathbb{Z}$.
+		Akibatnya, GCD($a,n$) = $1$.
+	\end{proof}
+	\section{Ideal}
+	\subsection{Pengenalan}
+	Salah satu bahasan penting ketika mengkaji teori gelanggang adalah ideal. Misal $(R,+,\times)$ gelanggang. Suatu subhimpunan tak hampa $I \subseteq R$ dikatakan \textbf{ideal kiri} (atau \textbf{ideal kanan}) dari gelanggang $R$ jika:
+	\begin{enumerate}
+		\item $(I,+)$ adalah subgrup dari $(R,+)$
+		\item Untuk setiap $x \in I$ dan $r \in R$ berlaku $rx \in I$ (atau $xr \in I$ jika ideal kanan)
+	\end{enumerate}
+	Jika cukup jelas ideal kiri atau ideal kanan (atau jika suatu ideal adalah ideal kiri dan ideal kanan), umumnya hanya disebut sebagai ideal saja (atau ideal 2 sisi jika ideal kanan-kiri). 
+	
+	Sebagai contoh, pada gelanggang $M_{2\times 2}(\mathbb{Z})$, himpunan $$I = \left\{ \left( \begin{matrix}
+	a & 0\\
+	b & 0\\
+	\end{matrix}\right) \, | \, a,b \in \mathbb{Z} \right\}$$ adalah suatu ideal kiri, tetapi bukan ideal kanan (silahkan periksa). Untuk alasan praktis, berikutnya ideal di sini akan disebut sebagai ideal saja, tanpa menyebutkan ideal kiri atau ideal kanan. Untuk ideal yang bukan dua sisi, asumsikan sebagai ideal kiri.
+	
+	Untuk memeriksa apakah suatu subhimpunan merupakan ideal atau bukan, dapat digunakan teorema berikut untuk mempermudah
+	
+	\begin{theorem}
+		Misal $I \subseteq R$ tak hampa. Kita katakan $I$ adalah ideal jika dan hanya jika
+		\begin{enumerate}
+			\item Untuk setiap $a,b \in I$ berlaku $a+b \in I$
+			\item Untuk setiap $r \in R$ dan $x \in I$ berlaku $rx \in I$
+		\end{enumerate}
+	\end{theorem}
+	\begin{proof}
+		Arah kanan pernyataan tersebut jelas. Sekarang, untuk arah sebaliknya, perhatikan bahwa karena $R$ suatu gelanggang, jelas $0 \in R$. Jadi, kita dapatkan $0 \times x = 0 \in I$. Karena $R$ gelanggang, jelas $1$ dan $-1$ di $R$. Ambil sebarang $x \in I$. Kita punya $-x \in I$ sehingga $(I,+)$ adalah subgrup $(R,+)$. Kita simpulkan $I$ adalah ideal dari $R$.
+	\end{proof}
+
+	Berikutnya kita akan tinjau gelanggang $\mathbb{Z}$. Salah satu ideal dari gelanggang ini adalah ideal nol, ideal yang isinya seluruh $\mathbb{Z}$. Adakah ideal lain dari gelanggang ini?
+	Dugaan yang cukup wajar adalah ideal dari $\mathbb{Z}$ berbentuk $n\mathbb{Z}$. Apakah benar ini ideal? Apakah semua idealnya berbentuk seperti itu? Kita punya teorema berikut
+	
+	\begin{theorem}
+		$I$ adalah ideal dari $\mathbb{Z}$ jika dan hanya jika $I = n\mathbb{Z}$ untuk suatu $n \in \mathbb{Z}$
+	\end{theorem}
+	\begin{proof}
+		Kita tinjau arah kanan teorema tersebut lebih dahulu. Misal $I = n\mathbb{Z}$ untuk suatu $n \in \mathbb{Z}$. Ambil $x,y \in I, r \in \mathbb{Z}$, akan ada $k,l \in \mathbb{Z}$ sehingga $x = kn$ dan $y = ln$. Akibatnya,
+		$$x+y = n(k+l) \in n\mathbb{Z}$$
+		$$rx = r(kn) = n(rk) \in n\mathbb{Z}$$
+		Jadi $I = n\mathbb{Z}$ adalah suatu ideal.
+		\\
+		
+		Sebaliknya, misal $I$ suatu ideal dari $\mathbb{Z}$. Untuk $I = \{0\}$ atau $I = \mathbb{Z}$, jelas $I = 0\mathbb{Z}$ atau $I = 1\mathbb{Z}$. Untuk ideal lainnya, pilih $n$ sebagai suatu unsur positif terkecil di $I$. Akibatnya, $n\mathbb{Z} \subseteq I$. Berikutnya, ambil sebarang $x \in I$. Dengan algoritma pembagian, tulis
+		$$x = pn + q$$
+		untuk suatu $p,q \in \mathbb{Z}$ dengan $0 \le q \le n-1$. Karena $x,n \in I$ haruslah $x - pn \in I$ sehingga haruslah juga $q \in I$. Perhatikan bahwa karena $n$ unsur positif terkecil di $I$ dan $0 \le q \le n-1$, haruslah $q = 0$. Jadi, $x = pn$ untuk suatu $p \in I$. Akibatnya, $I \subseteq n\mathbb{Z}$. Karena kedua himpunan saling subset, kita dapatkan $I = n\mathbb{Z}$.
+	\end{proof}
+	Satu hal penting yang perlu diperhatikan dari ideal adalah teorema berikut
+	\begin{theorem}
+		Misal $I \subseteq R$ suatu ideal. Kesamaan $I = R$ terjadi jika dan hanya jika $1 \in I$
+	\end{theorem}
+	\begin{proof}
+		Andaikan $I = R$, jelas $1 \in I$. Sebaliknya, misal $1 \in I$. Untuk sebarang $r \in R$, $r \times 1  = r \in I$ sehingga $R \subseteq I$. Jelas $I \subseteq R$ sehingga $I = R$.
+	\end{proof}
+	Akibat dari teorema di atas adalah
+	\begin{corollary}
+		Misal $F$ suatu lapangan. $I$ ideal dari $F$ jika dan hanya jika $I = \{0 \}$ atau $I = F$.
+	\end{corollary}
+	\hfill
+	
+	Pendefinisian berikutnya akan memanfaatkan pengertian terkait ideal sejati (\textit{proper ideal}). Suatu ideal $I$ dari gelanggang $R$ dikatakan \textbf{ideal sejati} jika $I \ne R$.\\
+	
+	\textbf{Definisi. }Suatu ideal sejati $I$ dari $R$ yang maksimal dikatakan sebagai \textbf{ideal maksimal} dari $R$. Dengan kata lain, $I$ adalah ideal maksimal dari gelanggang $R$ jika untuk setiap ideal $J$ dengan $I \subset J$ berlaku $J = R$.\\
+	
+	Perhatikan bahwa pendefinisian tersebut tidak menjamin ketunggalan dari ideal maksimal. Sebagai contoh, ideal $2\mathbb{Z}$ dan $3\mathbb{Z}$ sama-sama merupakan ideal maksimal dari gelanggang $\mathbb{Z}$ (silahkan anda periksa).
+	\\
+	
+	\textbf{Diskusi.} Apakah $I = \{ x(2+i) \, \, | \, \, x \in \mathbb{Z}[i] \}$ adalah ideal maksimal di $\mathbb{Z}[i]$?
+	\subsection{Daerah Ideal Utama}
+	Pada bagian ini, kita akan mengkaji gelanggang dengan properti khusus. Sebelumnya, kita definisikan dulu apa itu ideal utama dan unsur pembangun. Suatu ideal (kiri) $I$ dikatakan \textbf{dibangun} oleh unsur $n \in I$ jika $I = \{rn \, | \, r \in R\}$. Notasikan dengan $I = \langle n \rangle$. Ideal yang dibangun oleh tepat satu unsur kemudian akan kita sebut sebagai suatu \textbf{ideal utama}.
+	\\
+	
+	Untuk daerah integral yang setiap idealnya adalah ideal utama, kita katakan sebagai \textbf{daerah ideal utama}. Perhatikan bahwa untuk $D$ suatu daerah integral, $D = \langle 1 \rangle$.\\
+	
+	Contoh gelanggang yang bukan daerah ideal utama adalah gelanggang quarternion $(\mathbb{H},+,\times)$. Gelanggang quarternion adalah perluasan dari bilangan kompleks dengan 4 dimensi. Untuk $x \in \mathbb{H}$, dapat ditulis $x = a + ib + cj + dk$ (serupa dengan pada bilangan kompleks $z = x + iy$) dengan $i^2 = j^2 = k^2 = -1$, $ij = k, jk = i,$ dan $ki = j$. Perhatikan bahwa $I = \langle i,j \rangle = \{ri + kj \, | \, r,k \in \mathbb{H}\}$ adalah ideal (dan bukan ideal utama). Namun, selain melanggar syarat ideal utama, quarternion bahkan bukan gelanggang komutatif, sehingga bukan daerah integral. Akibatnya, jelas $\mathbb{H}$ bukan daerah ideal utama.
+	\\
+	
+	Pada daerah ideal utama, kita punya teorema berikut
+	\begin{theorem}[\textit{Ascending Chain Condition}]
+	Misal $D$ suatu daerah ideal utama dan $$\mathcal{C} := I_1 \subseteq I_2 \subseteq I_3 \subseteq ...$$ suatu rantai naik ideal dari $D$. Ada $k \ge 1$ sehingga $I_k = I_{k+j}$ untuk setiap $j \ge 0$
+	\end{theorem}
+	\begin{proof}
+		Tulis $$I = \bigcup_{I_l \in \mathcal{C}} I_l$$
+		Ambil $a,b \in I$, jelas ada $r_1, r_2$ sehingga $a \in I_{r_1}$ dan $b \in r_2$. Tanpa mengurangi keumuman, pilih $r_1 \le r_2$ (perhatikan bahwa bisa saja $r_1 = r_2$, tidak masalah). Dari rantai naik ideal, kita simpulkan $a,b \in I_{r_2}$. Karena $I_{r_2}$ ideal, jelas untuk sebarang $x_1, x_2 \in D$ berlaku $ax_1 + bx_2 \in I_{r_2}$. Dengan demikian, dapat kita simpulkan bahwa $I$ adalah suatu ideal. Karena $D$ suatu daerah ideal utama, ada $y \in D$ sehingga $I = \langle y \rangle$. Dari pendefinisian $I$, ada suatu $k$ sehingga $y \in I_k$.
+		\\
+		
+		Berikutnya, akan ditunjukkan bahwa $I = I_k$. Jelas bahwa $I_k \subseteq I$. Ambil sebarang $z \in I$. Karena $I = \langle y \rangle$, ada $m \in D$ sehingga $z = my$. Jadi, $I \subseteq I_k$. Dengan demikian, kita simpulkan $I = I_k$
+		\\
+		
+		Langkah terakhir adalah menunjukkan bahwa $I_k = I_{k+j}$ untuk sebarang $j \ge 0$. Dari rantai naik ideal, jelas $I_k \subseteq I_{k+j}$. Dari pendefinisian $I$, kita dapatkan pula $I_{k+j} \subseteq I$. Karena $I_k = I$, kita simpulkan bahwa $I_k = I_{k+j}$ untuk sebarang $j \ge 0$. Dengan demikian kita selesai.
+	\end{proof}
+	Sebelum lanjut ke teorema berikutnya, akan dikenalkan dahulu tentang lema Zorn. Materi ini sebenarnya di luar cakupan kuliah struktur bilangan bulat. Namun, teorema berikutnya adalah topik yang cukup penting.\\
+	
+	\textbf{Lema Zorn.} Misal $P$ adalah suatu himpunan yang dilengkapi urutan parsial (poset) dengan setiap rantai pada $P$ memiliki batas atas di $P$. Haruslah $P$ punya setidaknya satu batas atas.\\
+	
+	Detail terkait lema Zorn tidak akan dibahas di sini. Lema Zorn tersebut kemudian akan kita buktikan untuk membuktikan teorema berikut:
+	
+	\begin{theorem}
+		Daerah ideal utama $D$ punya setidaknya satu ideal maksimal
+	\end{theorem}
+
+	\begin{proof}
+		Definisikan $P = \{ I \subseteq D \ | \ I \ \textnormal{ideal}, I \ne D  \}$, yaitu himpunan dari ideal-ideal sejati $D$. Definisikan urutan parsial pada $P$ sebagai inklusi himpunan $(\subseteq)$. Definisikan rantai naik ideal $\mathcal{C}$ sebagai sebarang rantai naik ideal di $P$. Tulis $$I = \bigcup_{I_l \in \mathcal{C}} I_l$$
+		Pada teorema \textit{ascending chain condition}, telah ditunjukkan bahwa $I$ adalah batas atas pada rantai $\mathcal{C}$ dan $I \in \mathcal{C}$. Agar memenuhi kondisi lema Zorn, perlu ditunjukkan bahwa $I \in P$, yakni $I \ne D$. Telah ditunjukkan sebelumnya bahwa $I$ adalah suatu ideal. Karena $1 \not\in P$ (kenapa?), akibatnya untuk sebarang $I_j \in P$, $1 \not\in I_j$. Jadi, $1 \not\in I$. Kita simpulkan $I \ne D$. Jadi, batas atas untuk sebarang rantai naik $\mathcal{C}$ di $P$ ada di $P$. Akibatnya, haruslah $P$ mempunyai batas atas. Batas atas ini adalah ideal maksimal dari $D$, sehingga $D$ punya ideal maksimal.
+	\end{proof}
+	Kita tahu bahwa ideal-ideal dari suatu daerah ideal utama dapat dibangun oleh tepat satu unsur. Lantas, unsur apakah yang membangun suatu ideal tersebut? Misal $A = \{ a_1, a_2, ..., a_n \}$ sehingga $I = \langle A \rangle$, dapatkah kita mencari satu unsur lain, katakan saja $d$, sehingga $I = \langle d \rangle$? Ternyata bisa. Kita punyai teorema berikut untuk menjawabnya.
+	\begin{theorem}
+		\label{generatorIU}
+		Misal $D$ suatu daerah ideal utama dan $I$ ideal dari $D$ dengan $I = \langle A \rangle$. Ideal $I$ adalah ideal utama yang dibangun oleh $d$ jika dan hanya jika $d = $ GCD($A$)
+	\end{theorem}
+	\begin{proof}
+		($\implies$) Misal $I = \langle d \rangle$. Karena $I = \langle A \rangle$, haruslah $a \in \langle d \rangle$ untuk setiap $a \in A$. Berarti, kita bisa tulis $a = pd$ untuk suatu $p \in I$. Akibatnya, $d | a$. Misalkan ada $c \in D$ sehingga $c|a$ untuk setiap $a \in A$. Karena $I$ dibangun $A$, kita bisa tulis $$d = \sum_{a_i \in A,\, k_i \in D} k_i a_i$$Akibatnya, $c | d$. Jadi, $d = $ GCD($A$).
+		\\
+		
+		($\impliedby$) Misal $d = $ GCD($A$), haruslah $d | a$ untuk setiap $a \in A$. Akibatnya, haruslah $d \in I$ sehingga $\langle d \rangle \subseteq I$. Ambil sebarang $x \in I$. Karena $I = \langle A \rangle$, kita bisa tulis $$x = \sum_{a_i \in A, \, k_i \in D} k_i a_i$$Karena $d | a$, haruslah $d | x$ sehingga ada $p$ yang membuat $x = pd$. Akibatnya, $x \in \langle d \rangle$ sehingga $I \subseteq \langle d \rangle$. Dengan demikian, $I = \langle d \rangle$.
+	\end{proof}
+	\subsection{Ideal Prima}
+	Motivasi dari pendefinisian ideal prima serupa dengan pendefinisian unsur prima pada suatu gelanggang. Sebagai pengingat, unsur $p$ dikatakan sebagai unsur prima jika $p$ bukan nol, $p$ bukan unit, dan $p | ab$ mengakibatkan $p | a$ atau $p | b$.\\
+	
+	\textbf{Definisi.} Suatu ideal sejati $I$ dari gelanggang $R$ dikatakan \textbf{ideal prima} jika  untuk $a,b \in R$, $ab \in I$ mengakibatkan $a \in I$ atau $b \in I$.
+	\\
+	
+	Hubungan antara unsur prima di gelanggang bilangan bulat dengan ideal prima disajikan dalam teorema berikut:
+	
+	\begin{theorem}
+		\label{id-prime}
+		Unsur $p \in \mathbb{Z}$ adalah unsur prima jika dan hanya jika $p\mathbb{Z}$ adalah suatu ideal prima yang bukan ideal nol
+	\end{theorem}
+	\begin{proof}
+		($\implies$) Misal $p$ prima. Ambil $x \in p\mathbb{Z}$. Andaikan $x$ prima, kita dapat tulis $x = ac$ untuk suatu $a$ unit dan $c$ prima. Karena $x \in p\mathbb{Z}$, haruslah $c = p$ (mengapa?). Jadi, $x = ap \in p\mathbb{Z}$. Jelas $p \in p\mathbb{Z}$. Kemudian, untuk $x$ tak prima, karena $x \in p\mathbb{Z}$ kita dapat tulis $x = dp$ untuk suatu $d \in \mathbb{Z}$. Jelas $p \in \mathbb{Z}$. Kita simpulkan bahwa $p\mathbb{Z}$ adalah ideal prima.\\
+		
+		($\impliedby$) Misal $p\mathbb{Z}$ suatu ideal prima. Untuk sebarang $a,b \in \mathbb{Z}$ dengan $ab \in p\mathbb{Z}$ berlaku $a \in p\mathbb{Z}$ atau $b \in p\mathbb{Z}$. Tanpa mengurangi keumuman, $a \in p\mathbb{Z}$. Berarti, untuk $ab \in p\mathbb{Z}$ berlaku $a = pk$ untuk suatu $k \in \mathbb{Z}$. Karena $ab \in p\mathbb{Z}$, kita bisa tulis $ab = pc$ untuk suatu $c \in \mathbb{Z}$. Dari definisi keterbagian, kita katakan $p | ab$ dan $p|a$. Apabila $b \in p\mathbb{Z}$, kita akan dapatkan $p | b$. Jadi, $p$ adalah unsur prima.
+	\end{proof}
+	Berikutnya, suatu observasi penting adalah ideal nol belum tentu merupakan ideal prima dari suatu gelanggang. Kapan ideal nol adalah ideal prima? Jawabannya ada dalam pendefinisian pembagi nol dan daerah integral. Kita dapatkan teorema berikut:
+	
+	\begin{theorem}
+	Ideal nol adalah ideal prima dari gelanggang komutatif $D$ jika dan hanya jika $D$ adalah suatu daerah integral
+	\end{theorem} 
+	\begin{proof}
+		($\implies$) Misal $I$ ideal nol adalah ideal prima, untuk sebarang $ab \in I$ berlaku $a \in I$ atau $b \in I$. Berarti $ab = 0$ jika dan hanya jika $a = 0$ atau $b = 0$. Akibatnya, haruslah $D$ suatu daerah integral.
+		\\
+		
+		($\impliedby$) Misal $D$ adalah suatu daerah integral dan $I$ ideal nol. Untuk sebarang $x,y \in D$ dengan $xy = 0$, haruslah $x = 0$ atau $y = 0$. Akibatnya, untuk $xy \in I$ haruslah $x = 0 \in I$ atau $y = 0 \in I$. Jadi, $I$ adalah ideal prima.
+	\end{proof}
+	Berikutnya, untuk ideal $I$ tak nol dari gelanggang bilangan bulat $\mathbb{Z}$ pernyataan berikut ekuivalen (yakni semuanya benar atau semuanya salah):
+	\begin{theorem}
+		Pernyataan ekuivalen untuk ideal tak nol dari gelanggang bilangan bulat:
+		\begin{enumerate}
+			\item $I$ adalah suatu ideal prima
+			\item $I = p\mathbb{Z}$ untuk suatu $p$ prima
+			\item $I$ adalah ideal maksimal
+		\end{enumerate}
+	\end{theorem}
+	\begin{proof}
+		Kita akan buktikan ekuivalensi ini sebagai rantai implikasi (1) $\implies$ (2) $\implies$ (3) $\implies$ (1).\\
+		
+		Pernyataan (1) $\implies$ (2) adalah teorema \ref{id-prime}. \\
+		
+		Untuk pernyataan (2) $\implies$ (3), andaikan $I = p\mathbb{Z}$ bukan ideal maksimal, berarti ada ideal $J$ dengan $p\mathbb{Z} \subseteq J$ dan $J \ne \mathbb{Z}$. Ambil $x \in J \setminus p\mathbb{Z}$ (yakni unsur di $J$ yang tidak di $p\mathbb{Z}$), akibatnya haruslah $p$ tidak membagi $x$. Karena $p$ tidak membagi $x$, haruslah GCD($p,x$) = 1. Berarti ada $a,b \in \mathbb{Z}$ sehingga $ap + bx = 1$. Karena $ap \in p\mathbb{Z} \subseteq J$ dan $bx \in J$, haruslah ruas kiri persamaan tersebut ada di $J$. Oleh karena itu, ruas kanannya juga harus di $J$ sehingga $1 \in J$. Akibatnya haruslah $J = \mathbb{Z}$, kontradiksi dengan asumsi bahwa $J \ne \mathbb{Z}$. Kita dapatkan $p\mathbb{Z}$ adalah ideal maksimal.
+		\\
+		
+		Berikutnya untuk (3) $\implies$ (1), misalkan $I$ adalah ideal maksimal. Andaikan $I$ bukan ideal prima, berarti ada $a,b \in \mathbb{Z}$ dengan $ab \in I$ tetapi baik $a$ ataupun $b$ bukan anggota $I$. Karena $I$ ideal maksimal, ideal $a + I$ haruslah $\mathbb{Z}$. Berarti, $1 \in a+I$ sehingga $1 = xa + cy$ untuk suatu $x, y \in \mathbb{Z}$ dan $c \in I$. Dengan cara serupa, kita bisa konstruksi $1 = pb + qr$ untuk suatu $p,r \in \mathbb{Z}$ dan $q \in I$. Mengalikan keduanya, kita dapatkan $1 = (pb+qr)(xa+cy)$. Jabarkan untuk mendapatkan $1 = pbxa + pbcy + qrxa + qrcy$. Perhatikan bahwa karena $\mathbb{Z}$ komutatif, haruslah $pbxa = pabx$. Karena $ab, q, c \in I$, haruslah $1 = pabx + pbcy + qrax + qrcy \in I$. Karena $1 \in I$, haruslah $I = \mathbb{Z}$, kontradiksi dengan pernyataan bahwa $I$ adalah ideal maksimal (karena ideal maksimal haruslah ideal sejati). Dengan demikian, $I$ haruslah merupakan ideal prima.
+		\\
+		
+		Karena rantai implikasinya telah ditunjukkan, ekuivalensi tersebut terbukti.
+	\end{proof}
+	\textbf{Diskusi.} Tinjau gelanggang $\mathbb{Z} \times \mathbb{Z}$ dengan operasi per komponen. Misalkan $I \subseteq \mathbb{Z} \times \mathbb{Z}$ dengan $I = \{ (a,0) \, | \, a \in \mathbb{Z} \}$. Apakah $I$ adalah ideal prima? Apakah $I$ adalah ideal maksimal?\\
+	
+	\textbf{Diskusi.} Tunjukkan bahwa $D$ adalah lapangan jika $D$ suatu daerah integral dengan setiap ideal sejati dari $D$ adalah ideal prima. (Hint: Tinjau ideal yang dibangun oleh $a^2$ untuk sebarang $a \in D$)\\
+	
+	\textbf{Diskusi.} Tinjau ideal tak nol dari suatu gelanggang $R$. Apakah ideal prima selalu merupakan ideal maksimal? Bagaimana dengan sebaliknya, apakah ideal maksimal selalu merupakan ideal prima? Kapankah kesamaan itu terjadi?
+	\section{Daerah Euclid}
+	Tinjau kembali fungsi nilai mutlak pada gelanggang bilangan bulat. Untuk sebarang $n \in \mathbb{Z}$ kita punyai $|n| = \begin{cases}
+	n &\mbox{untuk $n \ge 0$}\\
+	-n &\mbox{untuk $n < 0$}
+	\end{cases}$\\
+	Kita ketahui sifat-sifat dari operasi nilai mutlak tersebut sebagai berikut:
+	\begin{enumerate}
+		\item $|n| \le |nm|$ untuk setiap $n,m \in \mathbb{Z}$
+		\item Misal $n, m \in \mathbb{Z}$ dengan $m \ne 0$. Dari algoritma pembagian, kita dapatkan ada $p,q \in \mathbb{Z}$ sehingga $n = pm + q$ dengan $|q| < |m|$ atau $q = 0$
+	\end{enumerate}
+	Kata kunci di sini adalah algoritma pembagian (Euclid). Dapatkah kita generalisasi untuk gelanggang yang lebih umum?\\
+	
+	Misal $D$ suatu daerah integral, definisikan fungsi Euclid $$\phi: D \setminus \{0\} \rightarrow \mathbb{Z}_{\ge 0}$$
+	yang memenuhi \begin{enumerate}
+		\item $\phi(a) \le \phi(ab)$ untuk setiap $a,b \in D$
+		\item Misal $a,b \in D$ dengan $b \ne 0$. Ada $p,q \in D$ sehingga $a = pb + q$ dengan $\phi(q) < \phi(b)$ atau $q = 0$
+	\end{enumerate}
+	Daerah integral yang dilengkapi dengan fungsi Euclid disebut sebagai \textbf{Daerah Euclid}. Sebagai contoh, $(\mathbb{Z}, | \cdot |)$ dan $(F[x], deg(f))$ adalah daerah Euclid (silahkan anda periksa).\\
+	
+	Dari pendefinisiannya, jelas bahwa daerah Euclid juga adalah daerah integral. Teorema berikut akan menunjukkan hubungannya dengan daerah ideal utama
+	\begin{theorem}
+		Jika $D$ adalah daerah Euclid dengan fungsi Euclid $f$, $D$ adalah suatu daerah ideal utama.
+	\end{theorem}
+	\begin{proof}
+		Misal $I$ ideal dari suatu daerah Euclid $D$. Andaikan $I = \{0\}$, jelas $I$ adalah ideal utama. Untuk $I$ lainnya, definisikan himpunan $$T = \{ f(x) \, | \, x\in D \}$$
+		Dari prinsip \textit{well-ordering}, $T$ punya unsur terkecil, sebut saja $f(y)$ untuk suatu $y \in I$. Klaim: $I = \langle y \rangle$. Akan kita buktikan klaim tersebut. Ambil $z \in I$. Karena $D$ daerah Euclid, ada $p,q \in D$ sehingga $z = py + q$ dengan $f(q) < f(y)$ atau $q = 0$. Perhatikan bahwa karena $f(y)$ unsur terkecil di $T$, haruslah $q = 0$ sehingga $z = py$. Jadi, $I = \langle y \rangle$. Karena $I$ dibangun oleh satu unsur  untuk sebarang ideal $I$ dari $D$, kita simpulkan bahwa $D$ adalah suatu daerah ideal utama.
+	\end{proof}
+	Kemudian terkait fungsi Euclid itu sendiri, kita punyai sifat berikut
+	\begin{theorem}
+		Misal $D$ daerah Euclid dengan fungsi Euclid $f$. Berlaku:
+		\begin{enumerate}
+			\item $f(1) \le f(a)$ untuk setiap $a \in D \setminus \{0\}$
+			\item $f(1) = f(u)$ jika dan hanya jika $u$ unit di $D$
+		\end{enumerate}
+	\end{theorem}
+	\begin{proof}
+		Perhatikan bahwa (1) adalah konsekuensi dari pendefinisian fungsi Euclid dengan menulis $a = 1a$ sehingga $f(1) \le f(1a) = f(a)$\\
+		
+		Kemudian untuk (2), misalkan $f(1) = f(u)$ untuk suatu $u \in D \setminus \{0\}$. Dari algoritma pembagian, kita bisa tuliskan $1 = pu + r$ dengan $f(r) < f(u)$ atau $r = 0$ untuk $p,r \in D \setminus \{0\}$. Andaikan $r \ne 0$, haruslah $f(r) < f(u)$. Padahal $f(u) = f(1)$ sehingga kita dapatkan $f(r) < f(1)$, menyalahi bagian (1) teorema kita. Akibatnya, haruslah $r = 0$ sehingga $u$ adalah unit. \\
+		
+		Arah sebaliknya, misalkan $u$ adalah unit, berarti ada $u^{-1}$ sehingga $uu^{-1} = 1$. Jadi, $f(u) \le f(uu^{-1}) = f(1)$. Dari bagian (1), haruslah $f(1) \le f(u)$, sehingga kita dapatkan $f(1) = f(u)$.
+	\end{proof}
+	Dengan dasar pendefinisian daerah Euclid dari algoritma pembagian, kita dapat lakukan pula algoritma Euclid pada daerah Euclid. Misal $(D,f)$ membentuk daerah Euclid dengan $\{a_1, a_2\} \subseteq D$. Dengan algoritma pembagian, tulis $a_1 = p_1 a_1 + a_3$. Andaikan $a_3 \ne 0$, kita punyai $f(a_3) < f(a_2)$. Kita bisa tuliskan lagi $a_2 = p_2 a_3 + a_4$ dengan $f(a_4) < f(a_3)$ dan seterusnya selama $a_n \ne 0$ untuk $n = 1,2,...$. Apa jaminan bahwa proses ini akan berakhir? Perhatikan bahwa nilai-nilai fungsi Euclid tersebut akan membentuk rantai turun $f(a_2) > f(a_3) > ... > 0$. Pada langkah terakhir proses tersebut, kita akan dapatkan
+	\begin{equation*}
+	\begin{split}
+	a_{n-1} & = p_{n-1}a_n + a_{n+1} \\
+	a_n & = p_n a_{n+1}
+	\end{split}
+	\end{equation*}
+	Seperti algoritma Euclid pada bilangan bulat, kita akan dapatkan bahwa $a_{n+1}$ adalah GCD($a_1, a_2$). Kita akan buktikan bahwa $a_{n+1}$ tersebut memang benar GCD($a_1, a_2$).
+	\begin{theorem}
+		Unsur $a_{n+1}$ dalam algoritma Euclid tersebut adalah GCD dari $a_1$ dan $a_2$
+	\end{theorem}
+	\begin{proof}
+		Tinjau unsur $a_i$ pada algoritma Euclid. Akan ditunjukkan bahwa $$\langle a_i, a_{i+1} \rangle = \langle a_{i+1}, a_{i+2} \rangle$$
+		Pertama, jelas $a_{i+1} \in \langle a_{i}, a_{i+1} \rangle$ dan $\langle a_{i+1}, a_{i+2} \rangle$. Perhatikan bahwa $a_i = p_i a_{i+1}$, sehingga $\langle a_{i}, a_{i+1} \rangle \subseteq \langle a_{i+1}, a_{i+2} \rangle$.\\
+		Dengan cara serupa dapat ditunjukkan bahwa $\langle a_{i+1}, a_{i+2} \rangle \subseteq \langle a_{i}, a_{i+1} \rangle$ sehingga $\langle a_{i}, a_{i+1} \rangle = \langle a_{i+1}, a_{i+2} \rangle$. Dari teorema \ref{generatorIU}, kita tahu $\langle A \rangle = \langle d \rangle$ jika dan hanya jika $d =$ GCD($A$). Berarti haruslah GCD($a_i, a_{i+1}$) = GCD($a_{i+1}, a_{i+2}$). Akibatnya, GCD($a_1, a_2$) = GCD($a_n, a_{n+1}$) = $a_{n+1}$.
+	\end{proof}
+	\textbf{Diskusi.} Tinjau bilangan bulat Eisenstein $\mathbb{Z}[\omega] = \{a + b\omega \, | \, a,b \in \mathbb{Z} \}$ dengan $\omega = \frac{-1+i\sqrt{3}}{2}$. Apakah ia membentuk daerah Euclid dengan fungsi Euclid $\phi(a+b\omega) = a^2 + b^2 - ab$?
+	\section{Daerah Faktorisasi Tunggal}
+	Pada bilangan bulat, dalam membicarakan faktorisasi prima suatu bilangan, kita mengenal teorema dasar aritmatika.
+	\begin{theorem}[Teorema Dasar Aritmatika]
+		Setiap bilangan bulat lebih dari 1 adalah bilangan prima atau merupakan hasil perkalian bilangan prima secara tunggal
+	\end{theorem}
+	Konsep ini dapat diperluas pula pada struktur abstrak gelanggang. Sebagai contoh, faktorisasi polinomial adalah topik yang banyak dikaji, termasuk keterkaitannya dengan faktorisasi pada bilangan bulat. Lagi-lagi di sini kita akan bicara tentang daerah integral sebagai perluasan dari konsep bilangan bulat. Definisi berikut akan menjadi bahasan kita terkait faktorisasi tunggal pada daerah integral.\\
+	
+	\textbf{Definisi.} Daerah integral $D$ adalah \textbf{daerah faktorisasi tunggal} (\textit{unique factorization domain}, UFD) jika untuk setiap $x \in D$ yang bukan unit dan bukan nol terdapat unsur-unsur tak-tereduksi $p_1, p_2, ..., p_n \in D$ dan unit $a$ sehingga $$x = ap_1p_2...p_n$$ secara tunggal terhadap permutasi urutan dan unsur sekawan.\\
+	
+	Perhatikan bahwa sebelumnya kita membahas faktorisasi prima, tetapi pada pendefinisian daerah faktorisasi tunggal, kita gunakan faktorisasi ke unsur-unsur tak-tereduksi. Secara umum, unsur tak-tereduksi berbeda dengan unsur prima. Namun, akan ditunjukkan bahwa pada daerah faktorisasi tunggal, kedua konsep tersebut ekuivalen.
+	\begin{theorem}
+	Misal $D$ adalah UFD. Unsur $x \in D$ tak-tereduksi jika dan hanya jika $x$ prima.
+	\end{theorem}
+	\begin{proof}
+		($\implies$) Misal $x$ unsur tak tereduksi di $D$. Misal $a,b \in D$ sedemikian  sehingga $x|ab$. Akan ditunjukkan bahwa $x | a$ atau $x|b$. Jika salah satu dari $a,b$ nol atau unit, jelas berlaku. Untuk kasus lainnya, perhatikan bahwa karena $x | ab$, ada $y \in D$ sehingga $ab = xy$. Tinjau kasus untuk $y$ bukan unit. Kita bisa lakukan faktorisasi $a = a_1 a_2 ... a_k$, $b = b_1 b_2 ... b_l$, dan $y = y_1 y_2 ... y_m$, yaitu sebagai hasil kali faktor-faktor tak-tereduksi. Kita dapatkan $$a_1 a_2 ... a_k b_1 b_2 ... b_l = xy_1 y_2 ... y_m$$Karena $D$ adalah UFD, haruslah $x$ sekawan dengan $a_i$ untuk suatu $i \in [1,k]$ atau $x$ sekawan dengan $b_j$ untuk suatu $j \in [1,l]$. Kita dapatkan haruslah $x | a$ atau $x | b$ sehingga $x$ prima.\\
+		
+		($\impliedby$) Misal $p \in D$ prima dengan $p = ab$ untuk suatu $a,b \in D$. Akan ditunjukkan bahwa haruslah $a$ unit atau $b$ unit. Karena $p = ab$, jelas $p | ab$, sehingga haruslah $p | a$ atau $p | b$. Tanpa mengurangi keumuman, misalkan $p | a$. Karena $p = ab$, kita punyai juga $a | p$ sehingga $a$ sekawan dengan $p$. Berarti $p$ dan $a$ dapat ditulis sebagai $p = ak$ untuk suatu $k$ unit. Akibatnya, $ak = ab$. Karena UFD adalah daerah integral, kita dapat lakukan pencoretan sehingga $k = b$. Kita dapatkan $b$ adalah unit. Jadi, $p$ tak-tereduksi.
+	\end{proof}
+	Karena ekuivalensi tersebut telah ditunjukkan, kita akan menganggap dua istilah tersebut sama pada pembahasan tentang UFD. Berikutnya kita akan bahas hubungan antara daerah faktorisasi tunggal dengan struktur lain yang terkait. Pertama, jelas bahwa UFD pastilah merupakan suatu daerah integral. Kemudian, akan ditunjukkan bahwa setiap daerah ideal utama adalah UFD.
+	\begin{theorem}
+		Daerah ideal utama adalah suatu daerah faktorisasi tunggal
+	\end{theorem}
+	\begin{proof}
+		Misalkan $D$ adalah suatu daerah ideal utama dan $x \in D$. Andaikan $x$ prima, kita bisa tulis $x = ac$ untuk suatu unit $a$ dan $c$ prima. Andaikan tidak, tulis $x = b_1 c$ dengan $b_1, c$ bukan unit dan bukan prima. Kita bisa lakukan terus prosesnya hingga didapat $x$ sebagai perkalian unsur-unsur prima dan unit. Akan ditunjukkan bahwa proses ini akan senantiasa berhenti. Tinjau teorema \textit{ascending chain condition}. Misal $b_1, b_2, ...$ bukan unsur prima dengan $b_j | b_i$ jika dan hanya jika $i \le j$. Akibatnya, rantai ideal $$\langle b_1 \rangle \subseteq \langle b_2 \rangle \subseteq ...$$punya ideal terbesar. Jadi, ada $k$ sehingga $\langle b_k \rangle = \langle b_{k+j} \rangle$ untuk setiap $j \ge 0$. Akibatnya, $b_{k+j}$ tak bisa lagi ditulis sebagai hasil kali 2 bilangan sehingga proses pemfaktoran tersebut akan berhenti. Kita dapatkan $x = ap_1p_2...p_n$ dengan $a$ unit dan $p_i$ prima.\\
+		
+		Berikutnya, perlu diperiksa bahwa faktorisasi tersebut tunggal terhadap unsur sekawan dan permutasi. Misalkan $x = ap_1p_2...p_n$ dan $x = bq_1q_2...q_m$. Akan ditunjukkan bahwa $m = n$, $a$ sekawan $b$, dan ada permutasi $\sigma: [1,n] \rightarrow [1,n]$ sehingga $p_i$ sekawan dengan $q_{\sigma(i)}$.\\
+		
+		Perhatikan bahwa karena $a,b$ keduanya unit, haruslah $p_1p_2...p_n$ sekawan dengan $q_1q_2...q_m$. Akibatnya, untuk suatu $i,j$, $p_i | q_j$ secara tunggal. Kita bisa tulis \begin{equation*}
+		\begin{split}
+			x & = b u_1 p_1 u_2 p_2 ... u_m p_m\\
+			& = u p_1 p_2 ... p_m\\
+			& = ap_1p_2...p_n
+		\end{split}
+		\end{equation*}
+		untuk $u$ suatu unit. Jadi haruslah $m = n$. Berarti $a$ sekawan dengan $b$ dan ada permutasi $\sigma: [1,n] \rightarrow [1,n]$ sehingga $p_i$ sekawan $q_{\sigma({i})}$. Jadi, $x$ terfaktorisasi secara tunggal. Kita simpulkan bahwa $D$ adalah suatu daerah faktorisasi tunggal.
+	\end{proof}
+	\textbf{Diskusi.} Periksa untuk $n \in \mathbb{N}$ berapa sajakah $\mathbb{Z}[\sqrt{-n}]$ merupakan daerah faktorisasi tunggal. Apakah ia juga daerah Euclid untuk fungsi Euclid $\rho_n (a+b\sqrt{-n}) = a^2 + nb^2$? Tinjau $n = 3$, coba cari contoh unsur prima di $\mathbb{Z}[\sqrt{-3}]$
+	\section{Penutup}
+	Pada bab ini kita telah mengkaji beberapa struktur dengan properti-propertinya. Berikut adalah diagram yang menyatakan hubungan antara struktur-struktur tersebut (panah dari $x$ ke $y$ menyatakan $x$ adalah $y$):\\
+	
+	\begin{tikzcd}
+	& Gelanggang                                                         &                                                 & Lapangan \arrow[lldd] \\
+	& Gel. \ Komutatif \arrow[u]                                         &                                                 &                       \\
+	& Daerah \ Integral \arrow[u] \arrow[rruu, "Berhingga"', bend right] &                                                 &                       \\
+	& UFD \arrow[u]                                                      & PID \arrow[l] & Daerah \ Euclid \arrow[l]  &                      
+	\end{tikzcd}\\
+	
+	Masih banyak struktur lainnya dengan beragam motivasi terkait pendefinisiannya yang tidak dibahas pada materi struktur bilangan bulat. Pembahasan terkait grup, kuosien, dan homomorfisma juga tidak dibahas di sini. Bagi pembaca yang tertarik belajar lebih jauh, penulis menyarankan untuk membaca lebih lanjut pustaka utama yang menjadi referensi kuliah ini.
+	

@@ -1,0 +1,51 @@
+\documentclass[11pt,b5paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}		%theorem
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tikz-cd}	%commutative diagram
+\usepackage{adjustbox}
+
+\author{Valerian Mahdi Pratama}
+\title{Catatan Struktur Bilangan Bulat}
+\date{}
+
+\setlength\parindent{0pt}
+
+%define utk amsthm
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Akibat}[theorem]
+\newtheorem{inneraxiom}{Aksioma}
+
+%rename beberapa nama default
+\renewcommand*{\proofname}{Bukti}
+\renewcommand{\chaptername}{Bab}
+\renewcommand{\contentsname}{Daftar Isi}
+\renewcommand\appendixname{Lampiran}
+
+
+\begin{document}
+
+\maketitle
+
+%Hitungan utk numbering table of content
+\setcounter{tocdepth}{1} 
+
+\tableofcontents
+
+\frontmatter
+\input{Pengantar}	
+\input{Notasi}
+
+\mainmatter
+\input{Bab1}
+\input{Bab2}
+\input{Bab3}
+\input{Bab4}
+
+\appendix
+\input{Apendiks}
+
+\end{document}

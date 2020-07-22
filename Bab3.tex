@@ -1,0 +1,209 @@
+\chapter{Sistem Bilangan Bulat Modulo}
+	Setelah sebelumnya mengkaji sistem bilangan bulat yang biasa kita kenal, kali ini kita akan membahas tentang sistem bilangan bulat modulo.
+	\section{Relasi Ekuivalen dan Modulo}
+	\subsection{Relasi Ekuivalen}
+	Kita awali pembahasan di bagian ini dengan membahas kembali tentang relasi. Misalkan $A,B$ adalah himpunan tak hampa. Hasil kali kartesian kedua himpunan tersebut adalah
+	$$A \times B = \{(a,b) \, | \, a \in A \ , b \in B\}$$
+	Kita dapat definisikan subset tak hampa dari $A\times B$, sebut $R \subseteq A\times B$ sebagai suatu \textbf{relasi}. Umumnya, relasi akan kita notasikan sebagai $a \ R \ b$, yang berarti $(a,b) \in R$
+	Misalkan $\sim$ adalah sebuah relasi terhadap anggota himpunan $S$, yaitu $\sim \ \subseteq S \times S$. Relasi $\sim$ dikatakan relasi ekuivalen jika:
+	\begin{itemize}
+		\item $(x,x) \in \ \sim$ untuk setiap $x \in S$ (yakni, $x \sim x$)
+		\item $(x,y) \in \ \sim \iff (y,x) \in \ \sim$ (yakni, $x \sim y \iff y \sim x$)
+		\item $(x,y) \in \ \sim$ dan $(y,z) \in \ \sim \implies (x,z) \in \ \sim$ (yakni, $x \sim y$ dan $y \sim z \implies x \sim z$) 
+	\end{itemize}
+	Sifat pertama dikenal sebagai sifat \textbf{refleksif}, sifat kedua dikenal sebagai sifat \textbf{simetris}, dan sifat ketiga dikenal sebagai sifat \textbf{transitif}.
+	\\
+
+	Sekarang, relasi seperti apakah yang memenuhi sifat tersebut? Kita ambil contoh yang sederhana: relasi "=" pada himpunan bilangan bulat. Mudah diperiksa bahwa relasi tersebut adalah relasi ekuivalen. Contoh lainnya adalah definisikan relasi $\sim$ pada himpunan matriks $n \times n$ simetrik dengan koefisien bilangan bulat $\mathcal{M} \subseteq M_{n\times n}(\mathbb{Z})$ dengan $A \sim B \iff A = B^{T}$ (matriks simetris adalah matriks yang sama dengan transposenya). Akan diperiksa bahwa $\sim$ adalah relasi ekuivalen.
+	\\
+	
+	Untuk memeriksa suatu relasi adalah relasi ekuivalen, kita bisa periksa ketiga sifat relasi ekuivalen. Tinjau relasi $\sim$ yang didefinisikan sebelumnya. 
+	\\
+	
+	Pertama, akan ditunjukkan bahwa relasi tersebut refleksif. Ambil $A \in \mathcal{M}$. Karena $A$ simetrik, jelas bahwa $A = A^{T}$. Akibatnya, untuk sembarang $A \in \mathcal{M}$ berlaku $A \sim A$.
+	\\
+	
+	Berikutnya, akan ditunjukkan bahwa relasi tersebut simetris. Ambil $A,B \in \mathcal{M}$. Jika $A \sim B$, berarti $A = B^{T}$. Karena $A,B$ simetrik, kita punya $A^T = A$ dan $B^T = B$ sehingga $B = A^T$. Jadi, $A \sim B \iff B \sim A$
+	\\
+	
+	Terakhir, akan ditunjukkan bahwa relasi tersebut bersifat transitif. Ambil $A,B,C \in \mathcal{M}$. Jika $A \sim B$ dan $B \sim C$, berarti $A = B^T$ dan $B = C^T$. Akibatnya, $A^T = B = C^T$. Karena $A$ simetrik, $A = A^T$ sehingga $A = C^T$. Dengan demikian, $A \sim C$.
+	\\
+	
+	Karena ketiga properti relasi ekuivalen dipenuhi, relasi $\sim$ tersebut merupakan relasi ekuivalen.
+	\\
+	
+	Untuk membuktikan bahwa suatu relasi bukanlah relasi ekuivalen, anda cukup mencari penyangkal bagi salah satu properti relasi ekuivalen. Sebagai gambaran, silahkan anda periksa apakah relasi-relasi berikut merupakan relasi ekuivalen (semua variabel dan relasi di bilangan bulat, kecuali disebutkan sebaliknya):
+	\begin{enumerate}
+		\item Relasi $\sim$ dengan $x \sim y \iff x - y$ ganjil
+		\item Relasi $\sim$ dengan $x \sim y \iff x - y$ genap
+		\item Untuk $x,y \in \mathbb{R}$, relasi $\sim$ di $\mathbb{R}$ dengan $x \sim y \iff x -y$ rasional
+		\item Untuk $x,y \in \mathbb{R}$, relasi $\sim$ di $\mathbb{R}$ dengan $x \sim y \iff x < y$ dan $y < x$
+		\item Misalkan $S \subseteq \mathbb{Z}$ tak hampa dengan penjumlahan dan pengurangan tertutup di $S$ (yakni, untuk $a,b \in S, \ a+b \in S$ dan $a-b \in S$). Relasi $\sim$ dengan $x \sim y \iff x-y \in S$  (Relasi seperti ini akan anda temui lagi saat membahas koset dari suatu grup)
+	\end{enumerate}
+	\subsection{Kelas Ekuivalen}
+	Misalkan $\sim$ adalah suatu relasi ekuivalen di himpunan $S$. Definisikan kelas ekuivalen untuk suatu $s \in S$ sebagai 
+	$$\kappa(s) = \{ x \in S \ | \ x \sim s \}$$
+	Yaitu himpunan semua anggota $S$ yang ekuivalen dengan $s$. Tinjau teorema berikut.
+	
+	\begin{theorem}
+		\label{kardKlasEq}
+		Misalkan $\sim$ adalah suatu relasi ekuivalen pada $S$, untuk setiap $x,y \in S$ berlaku tepat satu:
+		$\kappa(x) \cap \kappa(y) = \emptyset$ atau
+		$\kappa(x) = \kappa(y)$
+	\end{theorem}
+	\begin{proof}
+		Misal $\kappa(x)\cap\kappa(y) \ne \emptyset$, akibatnya ada $a \in \kappa(x)\cap\kappa(y)$. Dari definisi kelas ekuivalen, haruslah $a \sim x$ dan $a \sim y$. Ambil $\xi \in \kappa(x)$, haruslah $\xi \sim x$. Karena $a \sim x$ dan $\xi \sim x$, dari sifat simetri dan transitif haruslah $a \sim \xi$. Karena $a \sim y$, akibatnya $\xi \sim y$ untuk setiap $\xi \in \kappa(x)$. Dengan demikian, $\kappa(x) \subseteq \kappa(y)$. Menggunakan argumen serupa, dapat ditunjukkan bahwa $\kappa(y) \subseteq \kappa(x)$ sehingga $\kappa(x) = \kappa(y)$.
+	\end{proof}
+	Teorema ini akan berguna ketika kita meninjau kelas-kelas ekuivalen dari suatu himpunan sebagai partisi atas himpunan tersebut. Kenapa? Karena dua kelas ekuivalen hanya akan beririsan jika dan hanya jika kedua kelas ekuivalen tersebut adalah kelas ekuivalen yang sama.
+	\\
+	
+	\textbf{Definisi. }Misalkan $S$ adalah himpunan dan $P$ adalah himpunan yang berisi himpunan-himpunan yang merupakan subhimpunan tak hampa dari $S$. Kita katakan \textbf{$P$ partisi bagi $S$} (\textbf{$P$ mempartisi $S$}) jika: \begin{itemize}
+		\item Gabungan dari setiap himpunan di $P$ adalah $S$
+		\item Irisan dari setiap dua himpunan berbeda di $P$ adalah kosong, yakni untuk setiap himpunan $A,B \in P$, haruslah $(A \ne B) \implies A \cap B = \emptyset$
+	\end{itemize}
+	Dengan demikian, kita bisa dapatkan akibat dari teorema \ref{kardKlasEq}.
+	\begin{corollary}
+		Jika $\sim$ adalah relasi ekuivalen di $S$, kelas-kelas ekuivalen pada $S$ mempartisi $S$.
+	\end{corollary}
+	Dari teorema \ref{kardKlasEq}, kita sudah tahu bahwa poin kedua definisi partisi terpenuhi sehingga untuk membuktikan akibat tersebut, cukup ditunjukkan bahwa
+	$$\bigcup_{s \in S} \kappa(s) = S$$
+	Yakni gabungan dari setiap kelas ekuivalen di $S$ adalah $S$.
+	\begin{proof}
+		Jelas bahwa $\bigcup_{s \in S} \kappa(s) \subseteq S$. Ambil $x \in S$, tentu $x \sim x$. Jadi, $x \in \kappa(x)$ untuk setiap $x \in S$. Dengan demikian, $x \in \bigcup_{s \in S} \kappa(s)$ untuk setiap $x \in S$ sehingga $S \subseteq \bigcup_{s \in S} \kappa(s)$.
+		\\
+		
+		Jadi, $\bigcup_{s \in S} \kappa(s) = S$. Dengan demikian, akibat tersebut terbukti.
+	\end{proof}
+	
+	Misalkan himpunan $A$ terpartisi menjadi sebanyak \textit{countable} partisi (bisa saja tak berhingga, asalkan \textit{countable}). Definisikan $I$ sebagai himpunan indeks bagi partisi tersebut, yakni setiap partisi tersebut dapat dilabeli sebagai $A_i$ untuk suatu $i \in I$. Sebagai latihan, silahkan anda tunjukkan (atau cari penyangkal) bahwa untuk setiap $x,y \in A$, $x \sim y \iff x,y \in A_i$ untuk suatu $i \in I$ adalah suatu relasi ekuivalen. Yakni, tunjukkan bahwa untuk setiap $x,y \in A$, pernyataan "$x$ dan $y$ ekuivalen jika dan hanya jika ada pada himpunan partisi yang sama" mendefinisikan suatu relasi ekuivalen.
+	\subsection{Modulo}
+	Tinjau relasi di $\mathbb{Z}$ yang didefinisikan oleh $a \sim b \iff a - b \in n\mathbb{Z}$. Relasi inilah yang disebut sebagai relasi modulo $n$. Akan dibuktikan bahwa relasi modulo adalah relasi ekuivalen.
+	\\
+	
+	Pertama, jelas bahwa untuk $a \in \mathbb{Z}$, $a - a = 0 \in n\mathbb{Z}$ sehingga $a \sim a$.
+	\\
+	
+	Kemudian, untuk $a,b \in \mathbb{Z}$, jika $a \sim b$ berarti $a - b \in n\mathbb{Z}$. Karena $n\mathbb{Z}$ tertutup atas penjumlahan (dan pengurangan), $b - a \in \mathbb{Z}$ sehingga kita dapatkan $a \sim b \iff b \sim a$
+	\\
+	
+	Terakhir, untuk $a,b,c \in \mathbb{Z}$, jika $a \sim b$ dan $b \sim c$, berarti $a - b $ dan $b - c$ di $n\mathbb{Z}$. Karena $n\mathbb{Z}$ tertutup atas penjumlahan, $(a - b) + (b - c)$ juga ada di $n\mathbb{Z}$ sehingga $a - c \in n\mathbb{Z}$. Jadi, $a \sim c$.
+	\\
+	
+	Karena semua sifat relasi ekuivalen telah dibuktikan, kita simpulkan bahwa relasi modulo $n$ adalah sebuah relasi ekuivalen.
+	\section{Kongruensi}
+	Suatu relasi ekuivalen $\sim$ di himpunan $S$ yang dilengkapi operasi $\oplus$ dikatakan sebagai kongruensi jika dan hanya jika ia terdefinisi dengan baik. Yakni, untuk $a,a',b,b' \in S$, $a \sim a'$ dan $b \sim b'$ mengakibatkan $a \oplus b \sim a' \oplus b'$ .
+	\\
+	
+	Tinjau kembali relasi modulo n yang telah didefinisikan pada subbab sebelumnya. Dapat ditunjukkan bahwa di sistem matematika $(\mathbb{Z},+)$, relasi tersebut merupakan sebuah kongruensi. Misalkan $\sim$ adalah relasi modulo n. Kita dapat notasikan $x \sim y$ sebagai $x \equiv y$ (mod $n$). Notasi ini dibaca sebagai \textbf{$x$ kongruen dengan $y$ modulo $n$.} Untuk setiap $a \in \mathbb{Z}$, definisikan pula
+	$$\overline{a} = \{ x \in \mathbb{Z} \ | \ x \equiv a \ \textnormal{(mod }n) \}$$
+	
+	Jelas bahwa $\overline{a}$ adalah suatu kelas ekuivalen. Kita katakan bahwa $a$ adalah \textbf{wakil kelas} bagi kelas ekuivalen $\overline{a}$. Koleksi dari semua kelas ekuivalen dengan relasi ekuivalen modulo n adalah
+	$$\mathbb{Z}_n = \{ \overline{a} \ \, | \, \ a \in \mathbb{Z}  \}$$
+	Dapat diperiksa bahwa isi dari $\mathbb{Z}_n$ adalah $$\mathbb{Z}_n = \{\overline{0}, \overline{1}, ..., \overline{n-1} \}$$
+	\\
+	
+	Tentunya untuk kasus ini berlaku $n > 1$.
+	
+	\section{Bilangan Bulat Modulo dan Propertinya}
+	Definisikan suatu pengaitan
+	\begin{equation*}
+	\begin{split}
+		& +: \mathbb{Z}_n \times \mathbb{Z}_n \rightarrow \mathbb{Z}_n\\
+		& (\overline{a}, \overline{b}) \mapsto \overline{a+b}
+	\end{split}
+	\end{equation*}
+	Akan dibuktikan bahwa + adalah suatu operasi di $\mathbb{Z}_n$. Untuk membuktikannya, cukup ditunjukkan bahwa operasi + terdefinisi dengan baik.
+	Ambil $\overline{a_1},\overline{a_2},\overline{b_1},\overline{b_2} \in \mathbb{Z}_n$ dengan $\overline{a_1} = \overline{a_2}$ dan $\overline{b_1} = \overline{b_2}$. Akan ditunjukkan bahwa $\overline{a_1 + b_1} = \overline{a_2 + b_2}$.
+	\\
+	
+	Dari definisi, kita dapatkan $a_1 - a_2 \in n\mathbb{Z}$ dan $b_1 - b_2 \in n\mathbb{Z}$. Karena $n\mathbb{Z}$ tertutup atas penjumlahan, kita dapatkan $(a_1 - a_2) + (b_1 - b_2) \in n\mathbb{Z}$. Berarti, $(a_1 + b_1) - (a_2 + b_2) \in n\mathbb{Z}$ sehingga $\overline{a_1 + b_1} = \overline{a_2 + b_2}$. Jadi, pengaitan + terdefinisi dengan baik. Kita simpulkan bahwa + adalah suatu operasi atas $\mathbb{Z}_n$. Karena + terdefinisi dengan baik, operasi + tidak bergantung pada wakil kelas.
+	\\
+	
+	Dengan cara serupa, operasi $\times$ pada $\mathbb{Z}_n$ dapat didefinisikan, yaitu pemetaan yang memetakan $(\overline{a}, \overline{b})$ ke $\overline{ab}$. Pembaca diharap untuk memeriksa bahwa operasi tersebut terdefinisi dengan baik.
+	\\
+	
+	Sekarang tinjau sistem matematika $(Z_n, +, \times)$ dengan operasi $+$ dan $\times$ yang telah didefinisikan di atas. Dapat diperiksa bahwa sistem matematika tersebut memenuhi sifat-sifat berikut:
+	\begin{enumerate}
+		\item $\overline{a} + \overline{b} = \overline{b} + \overline{a}$ untuk setiap $\overline{a}, \overline{b} \in \mathbb{Z}_n$
+		\item $(\overline{a} + \overline{b}) + \overline{c} = \overline{a} + (\overline{b} + \overline{c})$ untuk setiap $\overline{a}, \overline{b}, \overline{c} \in \mathbb{Z}_n$
+		\item Ada unsur $\overline{0} \in \mathbb{Z}_n$ sehingga untuk setiap $\overline{a} \in \mathbb{Z}_n$ berlaku $\overline{a} + \overline{0} = \overline{0} + \overline{a} = \overline{a}$
+		\item Untuk setiap $\overline{a} \in \mathbb{Z}_n$ ada unsur $-\overline{a} \in \mathbb{Z}_n$ sehingga $\overline{a} + (-\overline{a}) = (-\overline{a}) + \overline{a} = \overline{0}$
+		\item $\overline{a} \overline{b} = \overline{b} \overline{a}$ untuk setiap $\overline{a}, \overline{b} \in \mathbb{Z}_n$
+		\item $\overline{a}(\overline{b}\overline{c}) = (\overline{a} \overline{b})\overline{c}$ untuk setiap $\overline{a},\overline{b},\overline{c} \in \mathbb{Z}_n$
+		\item Ada $\overline{1} \in \mathbb{Z}_n$ sehingga untuk setiap $\overline{a} \in \mathbb{Z}_n$ berlaku $\overline{1}\overline{a} = \overline{a}\overline{1} = \overline{a}$
+		\item $(\overline{a} + \overline{b})\overline{c} = \overline{a}\overline{c} + \overline{b}\overline{c}$ untuk setiap $\overline{a},\overline{b},\overline{c} \in \mathbb{Z}_n$
+	\end{enumerate}
+	Bukti untuk pernyataan-pernyataan tersebut dapat dilakukan dengan menggunakan sifat-sifat modulo. Sebagai contoh, akan dibuktikan sifat (4).
+	\\
+	
+	\begin{proof}[Eksistensi Invers Penjumlahan]
+		Ambil $\overline{a} \in \mathbb{Z}_n$. Karena $\overline{a}$ diambil bebas, dapat dipilih nilai $a$ yang memenuhi $0 \le a \le n-1$.
+		
+		Jika $a = 0$, dapat dipilih $-\overline{a} = 0$. Jika $a \ne 0$, pilih $b = n-a$. Jelas bahwa $1 \le b \le n-1$ sehingga $\overline{b} \in \mathbb{Z}_n$ dan $\overline{b} \ne 0$. Perhatikan bahwa
+		\begin{equation*}
+		\begin{split}
+			\overline{a} + \overline{b} & = \overline{a} + \overline{n - a}\\
+			& = \overline{a + n - a}\\
+			& = \overline{n}\\
+			& = \overline{0}
+		\end{split}
+		\end{equation*}
+		Jadi kita dapatkan $\overline{b} = -\overline{a}$ untuk setiap $\overline{a} \ne 0 \in \mathbb{Z}_n$. Dengan demikian, untuk setiap $\overline{a} \in \mathbb{Z}_n$ ada $-\overline{a}$ sehingga $\overline{a} + (-\overline{a}) = \overline{0}$
+	\end{proof}
+	Properti-properti ini serupa dengan properti $(\mathbb{Z},+,\times)$ yang telah kita bahas sebelumnya. Kita dapatkan $\mathbb{Z}_n$ adalah gelanggang dengan operasi-operasi yang didefinisikan di atas.
+	\\
+	
+	\section{Fungsi Phi Euler}
+	Definisikan himpunan $U_n$ = $\{ \overline{k} \in \mathbb{Z}_n \ | \ (k,n) = 1 \}$. Tentunya $k$ dapat dipilih agar memenuhi $0 \le k \le n-1$ sehingga himpunan ini berisi semua bilangan bulat positif lebih kecil dari $n$ yang relatif prima dengan $n$. Kardinalitas dari $U_n$, yaitu $|U_n|$ cukup sering muncul dalam bahasan terkait teori bilangan dan kita beri nama.
+	\\
+	
+	\textbf{Definisi. } Fungsi Phi Euler, $\phi(n)$, didefinisikan dengan $\phi(1) = 1$ dan $\phi(n) = $ banyaknya bilangan antara 1 dan $n-1$ (inklusif) yang relatif prima dengan $n$.
+	\\
+	
+	Sebagai contoh, $\phi(2) = 1$, $\phi(8) = 4$, dan $\phi(19) = 18$. Dapat dengan mudah dilihat bahwa untuk $p$ prima, $\phi(p) = p-1$ (silahkan periksa).
+	\\
+	
+	Sebagai contoh penggunaannya pada teori bilangan, terdapat teorema dari Euler.
+	
+	\begin{theorem}[Teorema Euler]
+		Misalkan $a,n \in \mathbb{N}$ dengan $(a,n) = 1$. Kita dapatkan $a^{\phi(n)} \equiv 1 \ (\textnormal{mod } n)$
+	\end{theorem}
+	Bukti dari teorema ini di luar cakupan bahasan kuliah struktur bilangan bulat. Pembaca yang ingin tahu lebih lanjut dapat membaca buku \textit{Abstract Algebra} karya I.N. Herstein bab 2.4 (teorema Lagrange). Konstruksi bukti akan melibatkan orde unsur pada grup yang dibentuk himpunan $U_n$.
+	\\
+	
+	Kasus khusus untuk teorema ini adalah ketika $n = p$ prima, yang dikenal sebagai teorema kecil Fermat (\textit{Fermat Little Theorem})
+	
+	\begin{corollary}[Teorema Kecil Fermat]
+		Jika $p$ prima dan $p$ tidak membagi $a$, $a^{p-1} \equiv 1 \ (\textnormal{mod } p)$ 
+	\end{corollary}
+	\begin{proof}
+		Karena $\phi(p) = p-1$ untuk $p$ prima, kita gunakan teorema Euler untuk mendapatkan akibat tersebut.
+	\end{proof}
+	Kita juga dapatkan akibat berikutnya
+	
+	\begin{corollary}
+		Misalkan $p$ prima. Untuk sembarang bilangan bulat $b$, $b^p \equiv b \ (\textnormal{mod } p)$
+	\end{corollary}
+	\begin{proof}
+		Andaikan $p$ tidak membagi $b$, kita gunakan teorema kecil Fermat dan kalikan dengan $b$ untuk mendapat hasil yang diinginkan. Untuk $p$ habis membagi $b$, $b \equiv 0 \ (\textnormal{mod }p)$ sehingga $b^p \equiv 0 \ (\textnormal{mod }p)$. Akibatnya, $b^p \equiv b \ (\textnormal{mod }p)$
+	\end{proof}
+
+	Tinjau kembali sistem matematika $(\mathbb{Z}_n, +, \times)$. Kita akan punya hasil berikut.
+	
+	\begin{theorem}
+		Setiap $\overline{a} \in \mathbb{Z}_n$ dengan $a$ relatif prima dengan $n$ mempunyai invers perkalian
+	\end{theorem}
+	\begin{proof}
+	Jalannya bukti akan memanfaatkan teorema Euler. Jika $(a,n) = 1$, dari teorema Euler kita dapatkan $\overline{a^{\phi{(n)}}} = \overline{1}$. Dengan kata lain, 
+	\begin{equation*}
+	\begin{split}
+		\overline{a}\overline{a^{\phi(n)-1}} & = \overline{a a^{\phi(n)-1}}\\
+		& = \overline{a^{\phi(n)}} \\
+		& = \overline{1}	 
+	\end{split}
+	\end{equation*}
+	Sehingga $\overline{a^{-1}} = \overline{a^{\phi(n-1)}}$ invers bagi $\overline{a}$
+	\end{proof}
+	
+	Akibat dari hasil ini adalah untuk $n = p$ prima, setiap unsur di $\mathbb{Z}_p$ yang tak nol mempunyai invers perkalian. Struktur seperti ini akan dikenal sebagai \textbf{lapangan} dalam studi aljabar abstrak atau aljabar linear (sebagai skalar dari suatu ruang vektor).
+	

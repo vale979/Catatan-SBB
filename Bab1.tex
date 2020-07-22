@@ -1,0 +1,202 @@
+
+	\chapter{Pendahuluan}
+	Dalam mengkaji struktur bilangan bulat (dan aljabar secara umum), \textit{tools} yang akan sering digunakan adalah sekumpulan objek yang dihimpun menjadi sebuah himpunan dan pemetaan antara himpunan-himpunan tersebut. Adanya pemetaan kemudian memungkinkan kita untuk mendefinisikan operasi pada himpunan. Properti yang dimiliki sebuah himpunan terhadap operasinya inilah yang membentuk struktur yang akan kita kaji.
+	\section{Himpunan}
+	\subsection{Himpunan dan Konstruksinya}
+	Misalkan $S$ adalah koleksi unik dari objek-objek (objek yang sama tidak ditulis dua kali). Kita sebut $S$ adalah suatu himpunan. Untuk suatu objek $s$ di $S$, kita katakan $s$ adalah unsur di $S$ dan kita notasikan $s \in S$.
+	\\
+	
+	Pendefinisian himpunan tidak serta-merta mengakibatkan himpunan tersebut mempunyai isi. Apabila tidak ada objek $s$ (apapun) sehingga $s \in S$, kita katakan $S$ adalah himpunan kosong dan kita notasikan sebagai $\emptyset$. Jika $S$ punya unsur di dalamnya, kita katakan $S$ tak hampa. Beberapa himpunan khusus yang sering muncul kita berikan notasi-notasi khusus yang bisa anda lihat pada bagian notasi di bagian awal catatan ini.
+	\\
+	
+	Untuk bekerja dengan himpunan, cara yang paling dasar dalam mengkonstruksinya adalah dengan melihat unsur di dalamnya. Kemudian, dengan pendefinisian tersebut akan kita buat definisi-definisi untuk membangun himpunan baru.
+	\\
+	
+	Pertama, akan dimulai dengan mendefinisikan subhimpunan. Suatu himpunan $H$ dikatakan subhimpunan dari $S$ jika untuk setiap $h \in H$ berlaku $h \in S$. Dalam kasus dua himpunan $S, S'$ mempunyai tepat anggota sama, dapat kita lihat bahwa $S \subseteq S'$ dan $S' \subseteq S$. Ide inilah yang kita gunakan untuk mendefinisikan kesamaan dua himpunan. Dua himpunan $S, S'$ dikatakan \textbf{sama}, notasikan dengan $S = S'$ jika dan hanya jika $S \subseteq S'$ dan $S' \subseteq S$.
+	\\
+	
+	Terkadang, diperlukan juga untuk mengetahui apakah suatu subhimpunan $H$ bagi $S$ sama dengan $S$. Misalkan $H \subseteq S$ dan $H \ne S$, kita katakan $H$ adalah \textbf{subhimpunan sejati} bagi $S$, notasikan sebagai $H \subset S$.
+	\\
+	
+	Dalam beberapa pembahasan (misalnya terkait komplemen yang akan kita bahas berikutnya), bisa jadi diperlukan suatu ide tentang himpunan semesta $U$ sehingga untuk setiap himpunan yang menjadi bahasan merupakan subhimpunan dari $U$. Misalkan $S$ adalah himpunan bilangan genap, salah satu semesta yang mungkin adalah himpunan $\mathbb{Z}$, yaitu himpunan semua bilangan bulat.
+	\\
+	
+	Untuk suatu himpunan $S$ dan semesta $U$, definisikan komplemen dari $S$, notasikan dengan $S^c$ sebagai himpunan $S^c = \{x \ | \ x \in U, x \notin S \}$
+	\\
+	
+	Dengan konsep-konsep yang kita definisikan tersebut kita dapat konstruksi himpunan - himpunan baru berikut: \begin{itemize}
+		\item $A \cup B = \{ x \ | \ x \in A$ atau $x \in B \}$
+		\item $A \cap B = \{ x \ | \ x \in A$ dan $x \in B \}$
+		\item $A - B = \{ x \ | \ x \in A$ dan $x \notin B \}$
+	\end{itemize}
+	Dari pendefinisian di atas, kita dapatkan beberapa sifat operasi himpunan yang akan kita himpun dalam teorema berikut
+	
+	\begin{theorem}[Sifat Operasi Himpunan]
+		Misalkan $U$ adalah suatu himpunan semesta dan $X,Y,Z \subseteq U$, sifat-sifat berikut berlaku:
+		\begin{enumerate}
+			\item $X \cap X^c = \emptyset$
+			\item $X \cup X^c = U$
+			\item $(X^c)^c = X$
+			\item ${(X \cup Y)}^c = X^c \cap Y^c$ dan ${(X \cap Y)}^c = X^c \cup Y^c$
+			\item $X \cup (Y \cup Z) = (X \cup Y) \cup Z$ (asosiatif, berlaku pula untuk irisan)
+			\item $X \cap Y = Y \cap X$ dan $X \cup Y = Y \cup X$ (komutatif)
+			\item $X \cup (Y \cap Z) = (X \cup Y) \cap (X \cup Z)$ (distributif, serupa juga untuk tanda $\cup$ dan $\cap$ yang diganti satu sama lain)
+		\end{enumerate}
+	\end{theorem}
+	\begin{proof}
+		Akan kita buktikan dua sifat saja, yaitu sifat pertama dan terakhir. Sisanya diserahkan kepada pembaca.
+		\begin{itemize}
+			\item Untuk sifat pertama, asumsikan dahulu $X$ tak hampa (jika kosong, trivial). Ambil $x \in X$ (perhatian: jika $X$ kosong kita tidak bisa mengambil $x \in X$, itulah kenapa di awal dinyatakan dulu $X$ tak hampa). Dari definisi $X^c$, jelas bahwa $x$ tidak di $X^c$ sehingga $X \cap X^c = \emptyset$
+			\item Untuk sifat terakhir, kita buktikan  $X \cup (Y \cap Z) = (X \cup Y) \cap (X \cup Z)$ dengan membuktikan bahwa himpunan kedua ruas saling \textit{subset}.
+			\\
+			
+			Pertama, akan dibuktikan bahwa  $X \cup (Y \cap Z) \subseteq (X \cup Y) \cap (X \cup Z)$. Ambil $x \in X \cup (Y \cap Z)$. Dari pendefinisian $\cup$, kita tahu bahwa $x \in X$ atau $x \in (Y \cap Z)$. Jika $x \in X$, jelas bahwa $x \in (X \cup Y)$ dan $x \in (X \cup Z)$ sehingga $x \in (X \cup Y) \cap (X \cup Z)$. Untuk $x \in (Y \cap Z)$, berarti $x \in Y$ dan $X \in Z$. Akibatnya, haruslah $x \in (X \cup Y)$ dan $x \in (X \cup Z)$ sehingga $x \in (X \cup Y) \cap (X \cup Z)$. Dengan demikian,  $X \cup (Y \cap Z) \subseteq (X \cup Y) \cap (X \cup Z)$.
+			\\
+			
+			Langkah selanjutnya adalah membuktikan $(X \cup Y) \cap (X \cup Z) \subseteq X \cup (Y \cap Z)$. Ambil $y \in (X \cup Y) \cap (X \cup Z)$. Kita tahu bahwa $y \in (X \cup Y)$ dan $y \in (X \cup Z)$. Jika $y \in X$, jelas bahwa $y \in  X \cup (Y \cap Z)$. Jika tidak, haruslah $y \in Y$ dan $y \in Z$ sehingga $y \in  X \cup (Y \cap Z)$. Jadi, $(X \cup Y) \cap (X \cup Z) \subseteq X \cup (Y \cap Z)$ sehingga dengan menggabungkan kedua hasil kita dapatkan $(X \cup Y) \cap (X \cup Z) = X \cup (Y \cap Z)$. Dengan demikian kita selesai.
+		\end{itemize}
+	\end{proof}
+	Dalam membuktikan suatu sifat bagi operasi himpunan, \textit{guideline} yang umum berlaku adalah dengan memeriksa konstruksi dari himpunannya. Jika anda yakin bukti bisa diberikan dengan memanfaatkan sifat-sifat yang umum dikenal (seperti teorema 1.1.1), silahkan. Namun, jika anda ragu, konstruksilah himpunannya. Sebagai catatan, meskipun diagram venn merupakan alat visualisasi yang baik untuk merepresentasikan himpunan, diagram venn bukanlah alat untuk membuat bukti formal.
+	\\
+	
+	Untuk melatih kemampuan pembuktian anda, cobalah soal berikut
+	\begin{enumerate}
+		\item Buktikan bagian lain yang belum dibuktikan dari teorema 1.1.1
+		\item Misalkan $S$ adalah suatu himpunan dan $A,B \subseteq S$. Definisikan operasi-operasi berikut:
+		\begin{itemize}
+			\item $A \oplus B = (A-B) \cup (B-A)$
+			\item $A \cdot B = A \cap B$
+		\end{itemize}
+		Tunjukkan bahwa sifat-sifat berikut berlaku:
+		\begin{enumerate}
+			\item $A \oplus A = \emptyset$
+			\item $A \oplus B = A \oplus C$ mengakibatkan $B = C$
+			\item $A \cdot (B + C) = (A \cdot B) + (A \cdot C)$
+		\end{enumerate}
+	\end{enumerate}
+	Cara lain untuk mengonstruksi himpunan adalah dengan hasil kali kartesian. Misalkan $A,B$ suatu himpunan yang keduanya tak hampa. Hasil kali kartesian $A,B$, notasikan sebagai $A \times B$ adalah
+	$$A \times B = \{ (a,b) \ | \ a \in A,\ b \in B \}$$
+	Salah satu penggunaan hasil kali kartesian adalah dalam pendefinisian relasi. Misalkan $S$ adalah suatu himpunan. Untuk $R \subset S \times S$ tak hampa, kita sebut $R$ sebagai suatu relasi. Kita katakan $a,b \in S$ berelasi dengan relasi $R$ (notasikan sebagai $a \ R \ b$) jika $(a,b) \in R$.
+	\\
+	
+	Jika sebelumnya kita bicara tentang konstruksi himpunan, sekarang kita akan meninjau objek di dalamnya. Definisikan \textbf{kardinalitas} dari suatu himpunan $S$, notasikan sebagai $|S|$ sebagai banyaknya objek di dalam himpunan $S$. Untuk $S$ yang berhingga, tentu mudah untuk membandingkan banyak objeknya. Namun, bagaimana dengan yang tak berhingga? Kita akan bahas kemudian.
+	\subsection{Urutan}
+	Bahasan pada bagian ini akan kita batasi pada urutan total (\textit{total order}). Misalkan $S$ sebuah himpunan. Definisikan $\preceq$ sebuah relasi \textit{total order} di $S$, untuk setiap $a,b,c \in S$ berlaku
+	\begin{itemize}
+		\item Jika $a \preceq b$ dan $b \preceq a$ maka $a = b$
+		\item Jika $a \preceq b$ dan $b \preceq c$ maka $a \preceq c$
+		\item $a \preceq b$ atau $b \preceq a$
+	\end{itemize}
+	Jenis lain dari urutan adalah urutan parsial (\textit{partial ordering}) yang merupakan perumuman dari urutan total. Dalam kasus urutan parsial, tidak harus semua unsur di $S$ dapat dibandingkan (tetapi jika bisa akan seperti urutan total). Urutan seperti ini dapat digunakan untuk mendefinisikan urutan bagi himpunan. Misal dua buah himpunan $A,B$, kita katakan $A \preceq B$ jika $A \subseteq B$. Andaikan $A,B$ disjoint, kita tidak dapat mengurutkan $A$ dan $B$.
+	\\
+	
+	Berikutnya kita akan tinjau properti yang dimiliki oleh bilangan asli.
+	
+	\begin{inneraxiom}[Well-Order]
+		Setiap $S$ subset $\mathbb{N}$ yang tak hampa punya unsur terkecil
+	\end{inneraxiom}
+	Pernyataan yang setara (dan lebih umum) dengan prinsip \textit{well order} ini adalah sebuah himpunan $S$ dengan urutan total $\preceq$ dikatakan \textit{well-ordered} (terurut dengan baik) jika ada unsur $x \in S$ sehingga untuk setiap $s \in S$ berlaku $x \preceq s$ (yakni $S$ punya unsur terkecil).
+	\\
+	
+	Prinsip \textit{well order} ini dapat digunakan untuk membuktikan teorema-teorema dalam teori bilangan atau hal yang berkaitan dengan bilangan bulat, termasuk prinsip induksi. Sebagai contoh, kita akan membuktikan bahwa tidak ada bilangan bulat di antara $0$ dan $1$.
+	\\
+	
+	Definisikan $S$ sebagai himpunan bilangan bulat antara $0$ dan $1$. Andaikan $S$ tak hampa. Dari prinsip \textit{well order}, ada unsur terkecil, katakan saja $s$, di $S$. Jelas berlaku $0 < s < 1$ sehingga $0 < s^2 < s$. Padahal $s$ unsur terkecil di $S$. Kontradiksi. Akibatnya, $S$ haruslah kosong. Jadi, tidak ada bilangan bulat di antara $0$ dan $1$.
+	\section{Pemetaan dan Operasi}
+	\subsection{Pemetaan}
+	Misalkan $S,T$ suatu himpunan tak hampa. Kita tentunya dapat mengaitkan anggota himpunan $S$ dengan anggota himpunan $T$, notasikan sebagai $f: S \rightarrow T$. Pengaitan seperti ini secara umum dapat bebas didefinisikan. Namun, kita akan membahas pengaitan khusus yang kita sebut pemetaan. Sebuah pengaitan $f: S \rightarrow T$ adalah suatu pemetaan jika dan hanya jika untuk setiap unsur $s \in S$ dipetakan ke satu unsur di $T$. Unsur hasil pemetaan $s$ oleh $f$ kita notasikan sebagai $f(s)$. Tentunya $f(s) \in T$. Akan berguna juga untuk mendefinisikan himpunan Peta($f$), yaitu himpunan
+	$$\textnormal{Peta}(f) = \{ f(s) \, | \, s \in S \}$$
+	Karena $f(s) \in T$, jelas bahwa Peta$(f) \subseteq T$. Beberapa referensi lain (terutama yang berbahasa Inggris) menotasikannya juga sebagai Im($f$) atau Image($f$).
+	\\
+	
+	Dua buah pemetaan $f,g: S \rightarrow T$ kita katakan sama jika ia memetakan semua unsur di $S$ ke unsur yang sama di $T$. Dengan kata lain, $f = g$ jika $f(s) = g(s)$ untuk setiap $s \in S$.
+	\\
+	
+	Dua buah pemetaan $f: S \rightarrow T$ dan $g: U \rightarrow V$ dapat juga dikomposisikan, asalkan Peta($f$) $ \cap \ U \ne \emptyset$. Untuk komposisi $g \circ f: S \rightarrow V$, Peta($g \circ f$) adalah $\{ g(x) : x \in \textnormal{Peta}(f) \cap U \}$. Komposisi tersebut juga dapat ditulis sebagai pemetaan baru, notasikan sebagai $gf$ sehingga diagram berikut komutatif (untuk diagram ini, asumsikan $T = $ Peta($f$) $ = U$ untuk mempermudah):\\
+	\adjustbox
+	{scale=1.4,center}{%
+		\begin{tikzcd}
+			S \arrow[rd,swap,"gf"]
+			\arrow{r}{f} &
+			T \arrow{d}{g} \\
+			& V
+		\end{tikzcd}
+	}
+	\\
+	
+	(Diagram komutatif di sini berarti untuk sembarang titik awal dan akhir, setiap rutenya merepresentasikan hal yang sama --- hal ini akan berguna untuk diagram yang lebih rumit)
+	\\
+	
+	Berikutnya kita akan meninjau beberapa pemetaan khusus dari perilakunya.
+	\\
+	
+	\textbf{Definisi. }Sebuah pemetaan $f: S \rightarrow T$ dikatakan \textbf{satu-satu} atau \textbf{injektif} jika untuk $s \ne s' \in S$ berlaku $f(s) \ne f(s')$.
+	\\
+	
+	Pernyataan yang ekuivalen untuk pernyataan tersebut adalah untuk $f$ satu-satu, $f(s) = f(s')$ mengimplikasikan $s = s'$ untuk $s,s' \in S$. Untuk $f$ pemetaan satu-satu, kita dapatkan teorema berikut
+	\begin{theorem}
+		Misal $f: S \rightarrow T$ satu-satu, maka $|S| \le |T|$
+	\end{theorem}
+	\begin{proof}
+		Misalkan $|S| > |T|$, dari prinsip sarang merpati, akan ada $t \in T$ sehingga ada $x,y \in S$ dengan $x \ne y$ dan $f(x) = f(y) = t$. Akibatnya, $f$ tidak satu-satu. Teorema 1.2.1 adalah kontraposisi pernyataan ini.
+	\end{proof}
+	Teorema ini beserta analoginya yang akan kita bahas berikutnya akan membantu kita untuk memeriksa kardinalitas suatu himpunan.
+	\\
+		
+	\textbf{Definisi. }Sebuah pemetaan $f: S \rightarrow T$ dikatakan \textbf{pada} atau \textbf{surjektif} jika untuk setiap $t \in T$ ada $s \in S$ sehingga $f(s) = t$.
+	\\
+	
+	Analog dengan teorema 1.2.1, kita punya teorema berikut
+	\begin{theorem}
+		Misal $f: S \rightarrow T$ pada, maka $|T| \le |S|$
+	\end{theorem}
+	\begin{proof}
+		Latihan. (Jalan buktinya serupa dengan teorema 1.2.1)
+	\end{proof}
+	\textbf{Definisi. }Sebuah pemetaan $f: S \rightarrow T$ dikatakan \textbf{satu-satu dan pada} atau \textbf{bijektif} jika $f$ satu-satu dan pada
+	\\
+	
+	Menggabungkan teorema 1.2.1 dan teorema 1.2.2, kita dapatkan akibat berikut
+	\begin{corollary}
+		Misal $f: S \rightarrow T$ suatu bijeksi, maka $|S| = |T|$
+	\end{corollary}
+	Dari akibat ini, untuk memeriksa apakah kardinalitas dari dua himpunan sama, kita cukup mencari suatu bijeksi dari satu himpunan ke himpunan lain. 
+	\\
+	
+	\textbf{Diskusi}
+	\begin{enumerate}
+		\item Carilah sebuah bijeksi dari $\mathbb{N}$ ke $\mathbb{Z}$
+		\item Apakah ada bijeksi dari $\mathbb{N}$ ke $\mathbb{N} \times \mathbb{N}$? Jika ya, beri contoh bijeksinya.
+		\item Apakah ada bijeksi dari $\mathbb{N}$ ke $\mathbb{Q}$? Jika ya, beri contoh bijeksinya.
+		\item Misalkan $f,g: S \rightarrow S$ suatu pemetaan dengan $g \circ f$ konstan. Untuk $g$ pemetaan pada, apa yang dapat anda simpulkan tentang $f$? Bagaimana untuk $f$ satu-satu?
+	\end{enumerate}
+
+	Sebuah pemetaan juga dapat dikenakan pada suatu himpunan. Misalkan $f: S \rightarrow T$ dan $A \subseteq S$. Hasil pemetaan $f(A)$ adalah $$f(A) = \{ f(a) : a \in A \}$$
+	Misal untuk pemetaan dan himpunan yang sama, $B \subseteq T$. Tinjau himpunan $$H = \{ s \in S \, | \, f(s) \in B \}$$
+	Himpunan $H$ dapat kita notasikan sebagai $H = f^{-1}(B)$ dengan $f^{-1}$ adalah suatu pemetaan $f^{-1}: T \rightarrow S$.
+	\\
+	
+	Pemetaan $f^{-1}: T \rightarrow S$ disebut sebagai \textbf{invers} dari pemetaan $f: S \rightarrow T$ jika
+	$$f^{-1} \circ f = i_S$$ dan $$f \circ f^{-1} = i_T$$
+	dengan $i_S$ dan $i_T$ masing-masing adalah pemetaan identitas di $S$ dan $T$ (yaitu pemetaan yang memetakan setiap unsur di suatu himpunan dengan dirinya sendiri). Perhatikan bahwa agar definisi ini terpenuhi, $f$ haruslah satu-satu dan pada (silahkan periksa). Untuk kasus khusus ketika $f$ adalah pemetaan dari suatu himpunan ke dirinya sendiri dan $f = f^{-1}$, kita sebut $f$ sebagai \textbf{involusi}.
+	\\
+	
+	\textbf{Diskusi. }Jika $f$ satu-satu dan pada, apakah $f^{-1}$ juga harus satu-satu dan pada? Buktikan.
+	\subsection{Operasi}
+	Misalkan $S$ adalah suatu himpunan tak hampa. Secara umum, suatu operasi di $S$ adalah sebuah pemetaan $S^k \rightarrow S$ untuk suatu $k$ bulat nonnegatif (pangkat di sini adalah hasil kali kartesian berulang). Pada bagian ini, pembahasan akan difokuskan pada \textbf{operasi biner}, yaitu untuk $k = 2$.
+	\\
+	
+	Definisikan pemetaan
+	\begin{equation*}
+		\begin{split}
+			& \cdot: S \times S \rightarrow S\\
+			& (a,b) \mapsto a \ \cdot \ b
+		\end{split}
+	\end{equation*}
+	Yaitu pemetaan yang mengirimkan $(a,b) \in S \times S$ ke $a \cdot b \in S$. Kita katakan $\cdot$ adalah suatu operasi jika untuk setiap $(a,b) \in S \times S$ mengakibatkan $a\cdot  b \in S$ dan terdefinisi dengan baik. Dengan kata lain, suatu operasi haruslah tertutup atas himpunannya. Suatu operasi terdefinisi dengan baik berarti untuk $a = a' \in S$ dan $b = b' \in S$, $(a,b)$ haruslah dipetakan ke hal yang sama dengan hasil pemetaan $(a',b')$. Misalnya, $a$ dan $a'$ adalah wakil kelas ekuivalen berbeda dari suatu kelas ekuivalen, yaitu 2 hal berbeda yang merepresentasikan hal yang sama (akan dibahas kemudian di bab 3). Jadi, suatu operasi haruslah tidak bergantung pada representasi.
+	\\
+	
+	Suatu himpunan tak hampa $H$ yang dilengkapi dengan operasi biner $\oplus$ disebut sebagai sebuah \textbf{sistem matematika}. Kita notasikan sistem matematika tersebut sebagai $(H, \oplus)$. Sebagai contoh, himpunan bilangan bulat $\mathbb{Z}$ yang dilengkapi operasi penjumlahan  dan perkalian (biasa) + dan $\times$ membentuk sistem matematika $(\mathbb{Z}, +)$ dan $(\mathbb{Z}, \times)$. Apabila operasi yang dimaksud jelas, penulisan sistem matematika $(H, \oplus)$ dapat diringkas menjadi $H$.
+	\\
+	
+	Sebagai perumuman, suatu sistem matematika dapat didefinisikan dengan lebih dari 1 operasi biner atas himpunannya. Sebagai contoh adalah sistem matematika $(\mathbb{Z},+,\times)$, yaitu himpunan bilangan bulat yang dilengkapi operasi penjumlahan dan perkalian (untuk saat ini kita belum bicara apapun tentang strukturnya.)

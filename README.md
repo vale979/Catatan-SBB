@@ -1,4 +1,4 @@
 # Catatan-SBB
 Catatan kuliah Struktur Bilangan Bulat di ITB
 
-Copyright©2020 Valerian Mahdi Pratama
+Copyright©2019 Valerian Mahdi Pratama
